@@ -8,7 +8,7 @@
       "./scripts/customizer.js"
     ]
   },
-  "publicPath": "/app/themes/sage",
+  "publicPath": "/wp-content/themes/redclickeu",
   "devUrl": "http://dev.redclick.eu",
   "proxyUrl": "http://localhost:3000",
   "cacheBusting": "[name]_[hash:8]",
