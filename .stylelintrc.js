@@ -34,7 +34,6 @@ module.exports = {
       "no-eol-whitespace": [true, {
           ignore: ["empty-lines"]
       }],
-      "declaration-empty-line-before": ["never"],
       "no-descending-specificity": null,
       "number-leading-zero": "never"
   },
