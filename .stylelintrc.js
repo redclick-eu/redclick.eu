@@ -30,7 +30,7 @@ module.exports = {
         ],
       },
     ],
-      "indentation": 4,
+      "indentation": "tab",
       "no-eol-whitespace": [true, {
           ignore: ["empty-lines"]
       }],
