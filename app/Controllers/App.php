@@ -7,24 +7,24 @@ use Sober\Controller\Controller;
 class App extends Controller
 {
     protected $acf = true;
-    private static $ulady = false;
+    private static $redclick = false;
 
-    public static function leeway($name = false) {
-        if (self::$ulady !== false) {
+    public static function redclick($name = false) {
+        if (self::$redclick !== false) {
             if ($name !== false) {
-                return isset(self::$ulady[$name]) ? self::$ulady[$name] : '%%'.$name.'%%';
+                return isset(self::$redclick[$name]) ? self::$redclick[$name] : '%%'.$name.'%%';
             }
-            return self::$ulady;
+            return self::$redclick;
         }
         $page = new WP_Query(['pagename' => 'mainpage']);
         $page->the_post();
-        self::$ulady = get_fields();
+        self::$redclick = get_fields();
         wp_reset_postdata();
 
         if ($name !== false) {
-            return self::$ulady[$name];
+            return self::$redclick[$name];
         }
-        return self::$ulady;
+        return self::$redclick;
     }
     
     public static function title()
