@@ -1,3 +1,69 @@
 .services {
-	//
+	$self: &;
+
+	@extend %container;
+
+	&-row {
+		@extend %row;
+	}
+
+	&-col {
+		@extend %col-6;
+
+		padding-bottom: 30px;
+	}
+
+	&-card {
+		min-height: 250px;
+		padding: 35px 0 35px 25%;
+		margin: 0;
+		border-radius: 5px;
+		border: 1px solid rgba(39, 43, 46, .125);
+		box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .16);
+		background-color: $white;
+		background-size: 20%;
+		background-position: 2.5% center;
+		background-repeat: no-repeat;
+
+		&_design {
+			background-image: url("../../../images/slugs/design.svg");
+		}
+
+		&_development {
+			background-image: url("../../../images/slugs/development.svg");
+		}
+
+		&_promotion {
+			background-image: url("../../../images/slugs/promotion.svg");
+		}
+
+		&_support {
+			background-image: url("../../../images/slugs/support.svg");
+		}
+	}
+
+	&-title {
+		margin-bottom: 20px;
+		font-weight: 700;
+		font-size: 24px;
+	}
+
+	&-list {
+		//
+	}
+
+	&-item {
+		display: inline;
+		padding-left: 17px;
+		background-image: url("../../../images/icons/hashtag.svg");
+		background-size: 15px;
+		background-position: 0 center;
+		background-repeat: no-repeat;
+		line-height: 30px;
+	}
+
+	&-link {
+		//
+	}
 }
+
