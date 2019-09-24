@@ -70,6 +70,43 @@ add_action('after_setup_theme', function () {
      * @see resources/assets/styles/layouts/_tinymce.scss
      */
     add_editor_style(asset_path('styles/main.css'));
+
+    add_filter('wp_nav_menu_args', function ($args) {
+        $args['container'] = 'nav';
+        $args['menu_class'] = 'menu-list';
+        return $args;
+    });
+
+
+    add_filter('nav_menu_css_class', function ($classes) {
+        $c[] = 'menu-item';
+
+        if (in_array('current-menu-item', $classes) || in_array('current_page_item', $classes)) {
+            $c[] = 'menu-item_current';
+        }
+
+        if (in_array('menu-item-has-children', $classes)) {
+            $c[] = 'menu-item_sub';
+        }
+
+        return $c;
+    }, 10, 4);
+
+
+    add_filter( 'nav_menu_submenu_css_class', function () {
+        return array('menu-menu_sub');
+    }, 10, 3);
+
+    add_filter( 'nav_menu_link_attributes', function ($atts) {
+        $atts['class'] =  'menu-link';
+        return $atts;
+    }, 10, 3 );
+
+
+    add_filter( 'nav_menu_item_title',  __NAMESPACE__ . '\\nav_menu_item_title', 10, 4 );
+    function nav_menu_item_title( $title) {
+        return "<span>$title</span> ";
+    }
 }, 20);
 
 /**

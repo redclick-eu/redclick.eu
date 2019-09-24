@@ -1,0 +1,29 @@
+.menu {
+	$self: &;
+
+	&_main {
+		margin: 0 -15px;
+
+		#{$self} {
+			&-list {
+				display: flex;
+				height: 100%;
+			}
+
+			&-item {
+				display: flex;
+				height: 100%;
+				padding: 0 15px;
+				align-items: stretch;
+				text-align: center;
+				text-transform: uppercase;
+				font-weight: bold;
+			}
+
+			&-link {
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+}

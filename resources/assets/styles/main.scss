@@ -16,5 +16,9 @@
 @import "common/global";
 @import "common/mixins";
 
+@import "components/languageSwitch";
+
+@import "components/menus/main";
+
 @import "layouts/header";
 @import "layouts/footer";

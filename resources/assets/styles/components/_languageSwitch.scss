@@ -1,0 +1,58 @@
+.languageSwitch {
+	$self: &;
+
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+
+	&:hover {
+		#{$self}-list {
+			opacity: 1;
+			pointer-events: auto;
+		}
+
+		#{$self}-arrow {
+			background-image: url("../../images/icons/chevron-up.svg");
+		}
+	}
+
+	&-current {
+		width: 100%;
+	}
+
+	&-arrow {
+		position: absolute;
+		top: 0;
+		right: 20px;
+		width: 20px;
+		background-image: url("../../images/icons/chevron-down.svg");
+		background-size: 20px;
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 100%;
+	}
+
+	&-list {
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		background-color: $black;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	&-item {
+		//
+	}
+
+	&-link {
+		display: block;
+		padding: 5px 0;
+	}
+}
