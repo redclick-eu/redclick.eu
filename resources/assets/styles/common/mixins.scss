@@ -3,10 +3,6 @@
 	position: relative;
 	padding-left: 30px;
 
-	@media (min-width: map-get($grid-breakpoints, xl)) {
-		padding-left: 35px;
-	}
-
 	&::before {
 		position: absolute;
 		top: 0;
