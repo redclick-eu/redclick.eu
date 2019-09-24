@@ -6,8 +6,15 @@ use Sober\Controller\Controller;
 
 class App extends Controller
 {
-    protected $acf = true;
+    protected $acf = false;
     private static $redclick = false;
+
+    public function __construct()
+    {
+        if (acf_get_valid_post_id(get_queried_object())) {
+            $this->acf = true;
+        }
+    }
 
     public static function redclick($name = false) {
         if (self::$redclick !== false) {
@@ -45,5 +52,19 @@ class App extends Controller
             return __('Not Found', 'sage');
         }
         return get_the_title();
+    }
+
+    public function wpml_languages()
+    {
+        $languages = apply_filters( 'wpml_active_languages', NULL, 'orderby=id&order=desc' );
+
+        unset($languages[ICL_LANGUAGE_CODE]);
+
+        return $languages;
+    }
+
+    public function wpml_current()
+    {
+        return apply_filters( 'wpml_active_languages', NULL, 'orderby=id&order=desc' )[ICL_LANGUAGE_CODE];
     }
 }
