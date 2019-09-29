@@ -1,0 +1,9 @@
+.contacts {
+	$self: &;
+
+	@extend %container;
+
+	&-row {
+		@extend %row;
+	}
+}

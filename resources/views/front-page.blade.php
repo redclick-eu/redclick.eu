@@ -5,5 +5,6 @@
         @include("partials.services")
         @include("partials.portfolio")
         @include("partials.reviews")
+        @include("partials.contacts")
     </main>
 @endsection
