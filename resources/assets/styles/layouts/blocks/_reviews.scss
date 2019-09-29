@@ -1,3 +1,77 @@
 .reviews {
-	//
+	$self: &;
+
+	@extend %container;
+
+	&-row {
+		@extend %row;
+	}
+
+	&-arrow {
+		@extend %col-1;
+
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+		opacity: .45;
+		cursor: pointer;
+		transition: opacity .3s;
+
+		&:hover {
+			opacity: 1;
+		}
+
+		&_left {
+			background-image: url("../../../images/icons/arrow_l.svg");
+		}
+
+		&_right {
+			background-image: url("../../../images/icons/arrow_r.svg");
+		}
+	}
+
+	&-carousel {
+		@extend %col-10;
+
+		padding: 0;
+		min-height: 250px;
+	}
+
+	&-item {
+		display: flex;
+		flex-direction: row;
+	}
+
+	&-photo {
+		display: flex;
+		align-items: center;
+		width: 25%;
+		padding: 0 15px;
+
+		img {
+			border-radius: 5px;
+		}
+	}
+
+	&-texts {
+		width: 75%;
+	}
+
+	&-text {
+		a {
+			color: $red;
+		}
+	}
+
+	&-name {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		text-align: right;
+
+		a {
+			@extend %link;
+		}
+	}
 }
+
