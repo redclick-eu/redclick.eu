@@ -6,4 +6,31 @@
 	&-row {
 		@extend %row;
 	}
+
+	&-info {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		font-size: 18px;
+		padding: 0;
+	}
+
+	&-item {
+		&_name {
+			width: 100%;
+			font-weight: 700;
+		}
+
+		&_label {
+			display: block;
+		}
+
+		&_value {
+			font-weight: 700;
+		}
+	}
+
+	&-block {
+		width: 50%;
+	}
 }
