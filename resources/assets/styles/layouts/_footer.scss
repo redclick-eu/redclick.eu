@@ -1,0 +1,62 @@
+.footer {
+	display: flex;
+	min-height: 25px;
+	background-color: $black;
+	color: $white;
+
+	&-container {
+		@extend %container;
+	}
+
+	&-row {
+		@extend %row;
+	}
+
+	&-copyright {
+		@extend %col-6;
+	}
+
+	&-links {
+		@extend %col-6;
+
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&-link {
+		padding-right: 10px;
+
+		:not(:last-of-type) {
+			padding-right: 0;
+		}
+
+		&_phone {
+			@include icon_before("../../../images/icons/phone_small.svg");
+
+			padding-left: 20px;
+
+			&::before {
+				width: 18px;
+			}
+		}
+
+		&_mail {
+			@include icon_before("../../../images/icons/envelope.svg", "left center");
+
+			padding-left: 20px;
+
+			&::before {
+				width: 15px;
+			}
+		}
+
+		&_fb {
+			width: 20px;
+			height: 20px;
+			background-size: 15px;
+			background-repeat: no-repeat;
+			background-position: bottom center;
+			background-image: url("../../../images/icons/fb.svg");
+		}
+	}
+}
