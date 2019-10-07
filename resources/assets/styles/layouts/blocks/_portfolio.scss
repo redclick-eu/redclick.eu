@@ -3,6 +3,8 @@
 
 	@extend %container;
 
+	padding-bottom: 30px;
+
 	&-row {
 		@extend %row;
 	}
