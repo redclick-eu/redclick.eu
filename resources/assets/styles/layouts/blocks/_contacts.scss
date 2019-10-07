@@ -11,10 +11,7 @@
 
 	&-info {
 		@extend %col-6;
-
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
+		
 		font-size: 18px;
 		padding: 0;
 	}
@@ -36,6 +33,10 @@
 		&_value {
 			font-weight: 700;
 		}
+	}
+
+	&-blocks {
+		display: flex;
 	}
 
 	&-block {
