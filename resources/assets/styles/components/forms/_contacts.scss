@@ -1,0 +1,74 @@
+.form_contacts {
+	display: flex;
+	flex-direction: column;
+	padding: 30px 40px;
+	background-color: $white;
+	border-radius: 5px;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, .4);
+
+	.form {
+		&-input {
+			width: 100%;
+			margin: 0 0 20px;
+			border: 0;
+			border-bottom: 1px solid $gray;
+			background-color: inherit;
+			transition: border-bottom .3s;
+
+			&.is-error,
+			&:focus {
+				border-color: $red;
+			}
+		}
+
+		&-privacyPolicy {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			font-size: 13px;
+			margin-bottom: 10px;
+		}
+
+		&-checkbox {
+			display: none;
+
+			& + label {
+				display: inline-block;
+				width: 13px;
+				height: 13px;
+				background-image: url(../../../images/icons/checkbox.svg);
+				background-size: contain;
+				margin: 0 3px 0 0;
+				background-repeat: no-repeat;
+			}
+
+			&:checked + label {
+				background-image: url(../../../images/icons/checkbox_checked.svg);
+				background-position: 1px center;
+			}
+		}
+
+		&-link {
+			@extend %link;
+		}
+
+		&-submit {
+			position: relative;
+			width: 140px;
+			height: 50px;
+			background-color: $red;
+			color: rgb(255, 255, 255);
+			cursor: pointer;
+			text-transform: uppercase;
+			border-width: 0;
+
+			&:hover {
+				background-color: $red_hover;
+			}
+
+			&:active {
+				background-color: $red_active;
+			}
+		}
+	}
+}

@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="contacts-form">
-
+            @include('partials.form-contacts')
         </div>
     </div>
 </div>
