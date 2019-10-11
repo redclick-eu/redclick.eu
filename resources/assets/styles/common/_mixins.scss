@@ -26,11 +26,11 @@
 	}
 }
 
-@mixin col($percents: 100%) {
+@mixin col($size: 100%) {
 	position: relative;
 	width: 100%;
 	padding-right: 15px;
 	padding-left: 15px;
-	flex: 0 0 $percents;
-	max-width: $percents;
+	flex: 0 0 $size;
+	max-width: $size;
 }
