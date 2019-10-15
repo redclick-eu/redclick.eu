@@ -1,0 +1,8 @@
+$hamburger-types: (slider);
+$hamburger-layer-width: 16px;
+$hamburger-layer-height: 2px;
+$hamburger-layer-spacing: 3px;
+$hamburger-hover-opacity: 1;
+$hamburger-layer-color : $red;
+
+@import "~hamburgers/_sass/hamburgers/hamburgers.scss";
