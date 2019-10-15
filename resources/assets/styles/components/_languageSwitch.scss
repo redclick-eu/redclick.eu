@@ -27,13 +27,17 @@
 	&-arrow {
 		position: absolute;
 		top: 0;
-		right: 20px;
 		width: 20px;
+		right: 0;
 		background-image: url("../../images/icons/chevron-down.svg");
 		background-size: 20px;
 		background-repeat: no-repeat;
 		background-position: center;
 		height: 100%;
+
+		@media (min-width: map-get($grid-breakpoints, xl)) {
+			right: 20px;
+		}
 	}
 
 	&-list {

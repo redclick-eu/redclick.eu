@@ -1,9 +1,13 @@
 .header {
-	display: flex;
+	display: none;
 	min-height: 75px;
 	margin-bottom: 25px;
 	background-color: $black;
 	color: $white;
+
+	@media (min-width: map-get($grid-breakpoints, lg)) {
+		display: flex;
+	}
 
 	&-container {
 		@extend %container;
@@ -40,8 +44,12 @@
 	&-phone {
 		@extend %col-3;
 
-		font-size: 24px;
+		font-size: 20px;
 		color: $red;
+
+		@media (min-width: map-get($grid-breakpoints, xl)) {
+			font-size: 24px;
+		}
 
 		a {
 			@include icon_before("../../images/icons/phone.svg", "center");
