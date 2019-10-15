@@ -1,0 +1,45 @@
+.privacyPolicy {
+	@extend %container;
+
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: auto;
+	padding: 0;
+	max-height: 80%;
+	background-color: $white;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity .33s;
+
+	&.is-active {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	&-header {
+		font-weight: 700;
+		font-size: 20px;
+		padding: 15px;
+		margin: 0;
+		border-bottom: 1px solid $gray;
+	}
+
+	&-content {
+		padding: 15px;
+	}
+
+	&-close {
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		top: 10px;
+		right: 10px;
+		background-image: url("../../images/icons/cross_black.svg");
+		background-size: contain;
+		cursor: pointer;
+	}
+}

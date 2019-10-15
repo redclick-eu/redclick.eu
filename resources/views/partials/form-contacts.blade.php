@@ -9,7 +9,9 @@
     <div class="form-privacyPolicy">
         <input type="checkbox" id="contactsCheckbox" checked name="info" class="form-checkbox">
         <label for="contactsCheckbox"></label>
-        <span>I have read and agree to the terms of <span class="form-link" >the privacy policy</span>.</span>
+        <span>I have read and agree to the terms of <span class="form-link" data-toggle="#privacyPolicy, #backdrop">the privacy policy</span>.</span>
     </div>
     <input type="submit" value="Send" class="form-submit">
 </form>
+
+@include('partials.privacyPolicy')
