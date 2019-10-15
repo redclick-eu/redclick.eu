@@ -69,6 +69,41 @@
 			&:active {
 				background-color: $red_active;
 			}
+
+			&:disabled {
+				background-color: $gray;
+				cursor: not-allowed;
+			}
+		}
+
+		&-backdrop {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 15px;
+			width: calc(100% - 30px);
+			height: 100%;
+			display: none;
+			justify-content: center;
+			align-items: center;
+			background-color: rgba($gray, .75);
+			opacity: 0;
+			transition: opacity .33s ease-out;
+
+			span {
+				display: none;
+				color: black;
+			}
+
+			&.is-active {
+				display: flex;
+				opacity: 1;
+
+				span {
+					display: block;
+					font-size: 24px;
+				}
+			}
 		}
 	}
 }
