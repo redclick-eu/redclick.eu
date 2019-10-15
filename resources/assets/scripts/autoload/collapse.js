@@ -17,7 +17,7 @@ Array.from(_toggle).forEach(function (el) {
 
         window.dispatchEvent(new CustomEvent('toggle.clean'));
 
-        if (isOpen !== this) {
+        if (isOpen !== this && this.getAttribute('data-toggle-type') !== 'close') {
             const _targets = Array.from(document.querySelectorAll(this.getAttribute('data-toggle')));
             _targets.push(this);
 
