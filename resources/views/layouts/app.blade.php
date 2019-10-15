@@ -10,6 +10,7 @@
 
         @php do_action('get_footer') @endphp
         @include('partials.footer')
+        @include('partials.backdrop')
         @php wp_footer() @endphp
 
     </body>
