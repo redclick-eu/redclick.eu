@@ -1,0 +1,94 @@
+.menu_mobile {
+	@extend %d-lg-none;
+	$h: 55px;
+
+	display: flex;
+	position: relative;
+	z-index: 1000;
+	width: 100%;
+	padding: 0 15px;
+	min-height: $h;
+	margin-bottom: 15px;
+	background-color: $black;
+
+	&.stuck {
+		position: fixed;
+	}
+
+	.menu {
+		&-logo {
+			display: block;
+			max-width: 180px;
+			margin: 10px auto;
+			background-image: url("../../../images/Logo_white.svg");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			flex-grow: 2;
+			transition: max-width .33s ease-out;
+
+			&.is-active {
+				max-width: 0;
+			}
+		}
+
+		&-phone {
+			width: 24px;
+			margin: 0 10px 0 0;
+			background-image: url("../../../images/icons/phone.svg");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+		}
+
+		&-additional {
+			display: flex;
+			position: relative;
+			justify-content: center;
+			align-items: center;
+			flex-grow: 0;
+			width: 21px;
+			cursor: pointer;
+		}
+
+		&-dots {
+			position: relative;
+			width: 4px;
+			height: 4px;
+			background-color: $red;
+			border-radius: 50%;
+
+			&.is-active {
+				&::before {
+					top: 0;
+					left: -6px;
+				}
+
+				&::after {
+					top: 0;
+					left: 6px;
+				}
+			}
+
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				background-color: inherit;
+				border-radius: inherit;
+				transition: .22s ease-out;
+			}
+
+			&::before {
+				top: 6px;
+			}
+
+			&::after {
+				top: -6px;
+			}
+		}
+	}
+}

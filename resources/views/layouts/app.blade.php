@@ -5,6 +5,7 @@
 
         @php do_action('get_header') @endphp
         @include('partials.header')
+        @include('partials.menu-mobile')
 
         @yield('content')
 
