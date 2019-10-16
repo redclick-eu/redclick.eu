@@ -12,12 +12,17 @@
 	&-arrow {
 		@extend %col-1;
 
+		display: none;
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: contain;
 		opacity: .45;
 		cursor: pointer;
 		transition: opacity .3s;
+
+		@media (min-width: map-get($grid-breakpoints, sm)) {
+			display: block;
+		}
 
 		&:hover {
 			opacity: 1;
@@ -33,7 +38,8 @@
 	}
 
 	&-carousel {
-		@extend %col-10;
+		@extend %col-12;
+		@extend %col-sm-10;
 
 		padding: 0;
 		min-height: 250px;
@@ -41,22 +47,38 @@
 
 	&-item {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
+
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			flex-direction: row;
+		}
 	}
 
 	&-photo {
 		display: flex;
 		align-items: center;
-		width: 25%;
-		padding: 0 15px;
+		width: 100%;
+		padding: 0 10% 10px 10%;
 
 		img {
 			border-radius: 5px;
 		}
+
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			width: 25%;
+			padding: 0 15px;
+		}
 	}
 
 	&-texts {
-		width: 75%;
+		width: 100%;
+		padding: 0 15px;
+		text-align: justify;
+
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			width: 75%;
+			padding: 0;
+		}
 	}
 
 	&-text {
