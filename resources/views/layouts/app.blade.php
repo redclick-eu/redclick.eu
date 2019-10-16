@@ -7,6 +7,7 @@
         @include('partials.header')
         @include('partials.menu-mobile')
         @include('partials.menu-aside')
+        @include('partials.info')
 
         @yield('content')
 

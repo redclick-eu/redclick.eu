@@ -1,0 +1,60 @@
+.info {
+	@extend %d-lg-none;
+
+	position: fixed;
+	z-index: 1000;
+	top: 50px;
+	right: 100vw;
+	height: auto;
+	padding: 10px 30px 10px 10px;
+	flex-direction: column;
+	align-items: flex-start;
+	white-space: nowrap;
+	background-color: $black;
+	color: $white;
+	border-radius: 0 0 0 60px;
+	overflow: hidden;
+	opacity: 0;
+	transition: opacity .22s ease-out, border-radius .33s cubic-bezier(.27, .26, 0, 1);
+
+	&.is-active {
+		opacity: 1;
+		border-radius: 0;
+		right: 0;
+	}
+
+	&-item {
+		margin: 0 25px 10px 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&-link {
+		position: relative;
+		padding: 4px 0 0 35px;
+
+		&::after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 24px;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-size: contain;
+			content: "";
+			background-position: 50%;
+		}
+
+		&_phone::after {
+			background-image: url("../../images/icons/phone.svg");
+		}
+
+		&_email::after {
+			padding-top: 0;
+			background-image: url("../../images/icons/envelope_red.svg");
+		}
+	}
+}
