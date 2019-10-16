@@ -10,14 +10,20 @@
 	}
 
 	&-info {
-		@extend %col-6;
-		
+		@extend %col-12;
+		@extend %col-md-6;
+
 		font-size: 18px;
-		padding: 0;
+		margin-bottom: 15px;
+
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			padding: 0;
+		}
 	}
 
 	&-form {
-		@extend %col-6;
+		@extend %col-12;
+		@extend %col-md-6;
 	}
 
 	&-item {
@@ -37,9 +43,14 @@
 
 	&-blocks {
 		display: flex;
+		flex-wrap: wrap;
 	}
 
 	&-block {
-		width: 50%;
+		width: 100%;
+
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			width: 50%;
+		}
 	}
 }
