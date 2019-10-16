@@ -68,4 +68,24 @@ class App extends Controller
     {
         return apply_filters( 'wpml_active_languages', NULL, 'orderby=id&order=desc' )[ICL_LANGUAGE_CODE];
     }
+
+    public function services_block()
+    {
+        $services = [
+            "design" => [],
+            "development" => [],
+            "promotion" => [],
+            "support" => [],
+        ];
+        $query = new WP_Query( ['category_name' => 'services'] );
+
+        foreach ($query->posts as $post) {
+            $services[get_field('service_type', $post->ID)][] = [
+                'title' =>  get_field('service_name', $post->ID),
+                'link' => get_permalink($post->ID)
+            ];
+        }
+
+        return $services;
+    }
 }
