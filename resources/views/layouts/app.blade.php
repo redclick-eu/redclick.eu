@@ -9,7 +9,9 @@
         @include('partials.menu-aside')
         @include('partials.info')
 
-        @yield('content')
+        <main>
+            @yield('content')
+        </main>
 
         @php do_action('get_footer') @endphp
         @include('partials.footer')
