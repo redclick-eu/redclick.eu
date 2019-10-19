@@ -9,12 +9,13 @@
             <li class="portfolio-menuItem" data-grid="support">Support</li>
         </ul>
         <ul class="portfolio-grid js-portfolio-grid">
-            <li class="portfolio-item js-isotope-design"><a href="#" class="portfolio-link" style="background-image: url('http://via.placeholder.com/230x230/FF0000?text=<>')"><span>Lorem ipsum.</span></a></li>
-            <li class="portfolio-item js-isotope-development"><a href="#" class="portfolio-link" style="background-image: url('http://via.placeholder.com/230x230/FF0000?text=<>')"><span>Lorem ipsum.</span></a></li>
-            <li class="portfolio-item js-isotope-support"><a href="#" class="portfolio-link" style="background-image: url('http://via.placeholder.com/230x230/FF0000?text=<>')"><span>Lorem ipsum.</span></a></li>
-            <li class="portfolio-item js-isotope-development"><a href="#" class="portfolio-link" style="background-image: url('http://via.placeholder.com/230x230/FF0000?text=<>')"><span>Lorem ipsum.</span></a></li>
-            <li class="portfolio-item js-isotope-design"><a href="#" class="portfolio-link" style="background-image: url('http://via.placeholder.com/230x230/FF0000?text=<>')"><span>Lorem ipsum.</span></a></li>
-            <li class="portfolio-item js-isotope-support"><a href="#" class="portfolio-link" style="background-image: url('http://via.placeholder.com/230x230/FF0000?text=<>')"><span>Lorem ipsum.</span></a></li>
+            @foreach($portfolio_block as $item)
+                <li class="portfolio-item js-isotope-design">
+                    <a href="{!! $item['link'] !!}" class="portfolio-link {!! $item['types'] !!}" style="background-image: url('{!! $item['logo'] !!}')">
+                        <span>{!! $item['title'] !!}</span>
+                    </a>
+                </li>
+            @endforeach
         </ul>
     </div>
 </div>
