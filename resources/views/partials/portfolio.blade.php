@@ -10,8 +10,8 @@
         </ul>
         <ul class="portfolio-grid js-portfolio-grid">
             @foreach($portfolio_block as $item)
-                <li class="portfolio-item js-isotope-design">
-                    <a href="{!! $item['link'] !!}" class="portfolio-link {!! $item['types'] !!}" style="background-image: url('{!! $item['logo'] !!}')">
+                <li class="portfolio-item {!! $item['types'] !!}">
+                    <a href="{!! $item['link'] !!}" class="portfolio-link" style="background-image: url('{!! $item['logo'] !!}')">
                         <span>{!! $item['title'] !!}</span>
                     </a>
                 </li>
