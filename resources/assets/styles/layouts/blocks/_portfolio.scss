@@ -74,13 +74,18 @@
 			opacity: 0;
 		}
 
+		span,
+		&::after {
+			transition: opacity .33s;
+		}
+
 		&:hover {
 			span {
 				opacity: 1;
 			}
 
 			&::after {
-				opacity: .35;
+				opacity: .75;
 			}
 		}
 	}
