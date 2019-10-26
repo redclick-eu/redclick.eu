@@ -1,0 +1,58 @@
+.post {
+	$self: &;
+
+	&_services {
+		@extend %container;
+
+		padding-bottom: 30px;
+
+		#{$self} {
+			&-row {
+				@extend %row;
+			}
+
+			&-content {
+				@extend %col-12;
+			}
+
+			&-info {
+				@extend %col-12;
+				@extend %col-lg-6;
+
+				margin-bottom: 15px;
+			}
+
+			&-form {
+				@extend %col-12;
+				@extend %col-lg-6;
+			}
+
+			&-card {
+				padding: 20px 0 20px 20%;
+				background-repeat: no-repeat;
+				background-size: 17%;
+				background-position: 0 center;
+
+				&_cost {
+					background-image: url("../../../images/slugs/cost.svg");
+				}
+
+				&_deadline {
+					background-image: url("../../../images/slugs/deadlines.svg");
+				}
+
+				h6 {
+					font-size: 20px;
+				}
+
+				span {
+					font-size: 40px;
+				}
+
+				@media (min-width: map-get($grid-breakpoints, md)) {
+					min-height: 145px;
+				}
+			}
+		}
+	}
+}
