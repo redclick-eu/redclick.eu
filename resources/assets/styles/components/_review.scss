@@ -1,0 +1,50 @@
+.review {
+	padding: 10px 0;
+	margin-bottom: 30px;
+	background-color: $white;
+
+	&-container {
+		@extend %container;
+	}
+
+	&-row {
+		@extend %row;
+	}
+
+	&-image {
+		@extend %col-12;
+		@extend %col-sm-4;
+		@extend %col-lg-3;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 15px;
+
+		img {
+			max-width: 320px;
+		}
+
+		@media (min-width: map-get($grid-breakpoints, sm)) {
+			img {
+				max-width: 100%;
+			}
+		}
+	}
+
+	&-text {
+		@extend %col-12;
+		@extend %col-sm-8;
+		@extend %col-lg-9;
+
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		text-align: justify;
+		font-size: 14px;
+
+		span {
+			font-weight: bold;
+		}
+	}
+}

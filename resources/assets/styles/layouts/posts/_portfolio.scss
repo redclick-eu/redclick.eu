@@ -1,0 +1,102 @@
+.post {
+	$self: &;
+
+	&_portfolio {
+		padding: 30px 0;
+		margin-bottom: 30px;
+		background-color: $white;
+
+		#{$self} {
+			&-container {
+				@extend %container;
+			}
+
+			&-row {
+				@extend %row;
+			}
+
+			&-site {
+				@extend %col-12;
+				@extend %col-md-6;
+
+				margin-bottom: 10px;
+				font-size: 14px;
+
+				a {
+					padding-left: 20px;
+					background-image: url(../../../images/icons/globe.svg);
+					background-size: 16px;
+					background-repeat: no-repeat;
+					background-position: 0 center;
+				}
+			}
+
+			&-services {
+				@extend %col-12;
+				@extend %col-md-6;
+
+				display: flex;
+				justify-content: flex-end;
+				font-size: 14px;
+
+				span {
+					margin-bottom: 30px;
+					padding-left: 25px;
+					background-image: url(../../../images/icons/check_red.svg);
+					background-size: 16px;
+					background-repeat: no-repeat;
+					background-position: 0 center;
+				}
+
+				@media (min-width: map-get($grid-breakpoints, sm)) {
+					justify-content: flex-start;
+				}
+			}
+
+			&-carousel {
+				@extend %col-12;
+
+				margin-bottom: 30px;
+			}
+
+			&-arrow {
+				position: absolute;
+				top: 0;
+				z-index: 10;
+				height: 100%;
+				width: 8.33333%;
+				cursor: pointer;
+				background-size: 63px;
+				background-repeat: no-repeat;
+				background-position: center center;
+
+				&_left {
+					left: 0;
+					background-image: url("../../../images/icons/arrow_l.svg");
+				}
+
+				&_right {
+					right: 0;
+					background-image: url("../../../images/icons/arrow_r.svg");
+				}
+			}
+
+			&-text {
+				@extend %col-12;
+				@extend %col-lg-4;
+
+				font-size: 14px;
+
+				h6 {
+					font-size: 24px;
+					font-weight: bold;
+					background-image: url("../../../images/icons/question.svg");
+					background-size: 30px;
+					padding-left: 35px;
+					background-repeat: no-repeat;
+					background-position: 0 center;
+				}
+			}
+		}
+	}
+}
