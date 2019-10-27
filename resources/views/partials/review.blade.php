@@ -1,4 +1,4 @@
-<div class="review">
+<div class="review" id="review">
     <div class="review-container">
         <div class="review-row">
             <div class="review-image">

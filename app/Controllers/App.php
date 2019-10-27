@@ -17,10 +17,11 @@ class App extends Controller
         }
     }
 
-    public static function redclick($name = false) {
+    public static function redclick($name = false)
+    {
         if (self::$redclick !== false) {
             if ($name !== false) {
-                return isset(self::$redclick[$name]) ? self::$redclick[$name] : '%%'.$name.'%%';
+                return isset(self::$redclick[$name]) ? self::$redclick[$name] : '%%' . $name . '%%';
             }
             return self::$redclick;
         }
@@ -37,7 +38,7 @@ class App extends Controller
 
     public function wpml_languages()
     {
-        $languages = apply_filters( 'wpml_active_languages', NULL, 'orderby=id&order=desc' );
+        $languages = apply_filters('wpml_active_languages', NULL, 'orderby=id&order=desc');
 
         unset($languages[ICL_LANGUAGE_CODE]);
 
@@ -46,7 +47,7 @@ class App extends Controller
 
     public function wpml_current()
     {
-        return apply_filters( 'wpml_active_languages', NULL, 'orderby=id&order=desc' )[ICL_LANGUAGE_CODE];
+        return apply_filters('wpml_active_languages', NULL, 'orderby=id&order=desc')[ICL_LANGUAGE_CODE];
     }
 
     public function services_block()
@@ -57,11 +58,11 @@ class App extends Controller
             "promotion" => [],
             "support" => [],
         ];
-        $query = new WP_Query( ['category_name' => 'services'] );
+        $query = new WP_Query(['category_name' => 'services']);
 
         foreach ($query->posts as $post) {
             $services[get_field('service_type', $post->ID)][] = [
-                'title' =>  get_field('service_name', $post->ID),
+                'title' => get_field('service_name', $post->ID),
                 'link' => get_permalink($post->ID)
             ];
         }
@@ -89,5 +90,33 @@ class App extends Controller
         }
 
         return $portfolio;
+    }
+
+    public function reviews_block()
+    {
+        $output = [];
+
+        $posts = get_posts([
+            'category_name' => 'portfolio',
+            'meta_key' => 'project_view',
+            'meta_value' => true
+        ]);
+
+        foreach ($posts as $post) {
+            $fields = get_fields($post->ID);
+
+            $output[] = [
+                'photo' => [
+                    'url' => $fields['project_clientPhoto']['url'],
+                    'alt' => $fields['project_clientPhoto']['title'],
+                ],
+                'text' => trim(mb_substr(strip_tags($fields['project_review']), 0, 600)),
+                'client_name' => $fields['project_clientInfo'],
+                'company_name' => $post->post_title,
+                'link' => get_permalink($post->ID),
+            ];
+        }
+
+        return $output;
     }
 }
