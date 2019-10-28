@@ -15,15 +15,15 @@
                 <div class="post-arrow post-arrow_right siema-arrow_right"></div>
             </div>
             <div class="post-text post-text_task">
-                <h6>Task</h6>
+                <h6>{!! wpcl_t("Task") !!}</h6>
                 {!! $post_vars['text']['task'] !!}
             </div>
             <div class="post-text post-text_solution">
-                <h6>Solution</h6>
+                <h6>{!! wpcl_t("Solution") !!}</h6>
                 {!! $post_vars['text']['solution'] !!}
             </div>
             <div class="post-text post-text_result">
-                <h6>Result</h6>
+                <h6>{!! wpcl_t("Result") !!}</h6>
                 {!! $post_vars['text']['result'] !!}
             </div>
         </div>

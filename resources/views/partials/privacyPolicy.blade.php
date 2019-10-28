@@ -1,5 +1,5 @@
 <div class="privacyPolicy" id="privacyPolicy">
-    <h4 class="privacyPolicy-header">Privacy policy</h4>
+    <h4 class="privacyPolicy-header">{!! wpcl_t("Privacy policy") !!}</h4>
     <div class="privacyPolicy-close" data-toggle="#privacyPolicy, #backdrop" data-toggle-type="close"></div>
     <div class="privacyPolicy-content">
         <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, iure obcaecati. Accusantium consectetur debitis, eaque eos ex, expedita facilis fugiat laborum mollitia nam nemo neque odio quas reiciendis totam voluptatem?</div>
