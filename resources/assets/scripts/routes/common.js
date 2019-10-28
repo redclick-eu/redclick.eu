@@ -3,6 +3,7 @@ import 'whatwg-fetch'
 
 export default {
     init() {
+        setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 500);
 
         const script_recaptcha = document.createElement('script');
         script_recaptcha.src = 'https://www.google.com/recaptcha/api.js?onload=recaptcha_onload&render=explicit';

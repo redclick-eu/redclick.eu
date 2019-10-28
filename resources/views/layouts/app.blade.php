@@ -16,6 +16,7 @@
         @php do_action('get_footer') @endphp
         @include('partials.footer')
         @include('partials.backdrop')
+        @include('partials.preloader')
         @php wp_footer() @endphp
 
     </body>
