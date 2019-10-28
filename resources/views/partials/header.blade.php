@@ -1,3 +1,4 @@
+@php use App\Controllers\App as A @endphp
 <header class="header">
     <div class="header-container">
         <div class="header-row">
@@ -13,7 +14,7 @@
                 @include("partials.menu-main")
             </div>
             <div class="header-phone">
-                <a href="tel:%%PHONE%%">+7 (958) 756-85-02</a>
+                <a href="tel:{!! App\create_link_phone(A::redclick("phone_number")) !!}">{!! A::redclick("phone_number") !!}</a>
             </div>
         </div>
     </div>
