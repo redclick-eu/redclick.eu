@@ -29,19 +29,19 @@
 		background-repeat: no-repeat;
 
 		&_design {
-			background-image: url("../images/slugs/design.svg");
+			background-image: url("../../../images/slugs/design.svg");
 		}
 
 		&_development {
-			background-image: url("../images/slugs/development.svg");
+			background-image: url("../../../images/slugs/development.svg");
 		}
 
 		&_promotion {
-			background-image: url("../images/slugs/promotion.svg");
+			background-image: url("../../../images/slugs/promotion.svg");
 		}
 
 		&_support {
-			background-image: url("../images/slugs/support.svg");
+			background-image: url("../../../images/slugs/support.svg");
 		}
 
 		@media (min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($grid-breakpoints, lg)-1) {
@@ -63,7 +63,7 @@
 	&-item {
 		display: inline;
 		padding-left: 17px;
-		background-image: url("../images/icons/hashtag.svg");
+		background-image: url("../../../images/icons/hashtag.svg");
 		background-size: 15px;
 		background-position: 0 center;
 		background-repeat: no-repeat;
