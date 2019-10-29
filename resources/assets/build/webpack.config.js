@@ -2,7 +2,7 @@
 
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const CleanPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CopyGlobsPlugin = require('copy-globs-webpack-plugin');
@@ -134,10 +134,7 @@ let webpackConfig = {
     jquery: 'jQuery',
   },
   plugins: [
-    new CleanPlugin([config.paths.dist], {
-      root: config.paths.root,
-      verbose: false,
-    }),
+    new CleanWebpackPlugin(),
     /**
      * It would be nice to switch to copy-webpack-plugin, but
      * unfortunately it doesn't provide a reliable way of
