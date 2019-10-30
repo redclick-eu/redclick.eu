@@ -13,6 +13,12 @@ add_filter('body_class', function (array $classes) {
         }
     }
 
+    foreach ($classes as $key => $class) {
+        if(strpos($class,'-') === false) {
+            $classes[$key] = 'body-'.$class;
+        }
+    }
+
     /** Add class if sidebar is active */
     if (display_sidebar()) {
         $classes[] = 'sidebar-primary';
