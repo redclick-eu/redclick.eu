@@ -36,14 +36,14 @@
 				display: inline-block;
 				width: 13px;
 				height: 13px;
-				background-image: url(../../../images/icons/checkbox.svg);
+				background-image: url(../images/icons/checkbox.svg);
 				background-size: contain;
 				margin: 0 3px 0 0;
 				background-repeat: no-repeat;
 			}
 
 			&:checked + label {
-				background-image: url(../../../images/icons/checkbox_checked.svg);
+				background-image: url(../images/icons/checkbox_checked.svg);
 				background-position: 1px center;
 			}
 		}

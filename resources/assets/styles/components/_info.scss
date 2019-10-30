@@ -49,12 +49,12 @@
 		}
 
 		&_phone::after {
-			background-image: url("../../images/icons/phone.svg");
+			background-image: url("../images/icons/phone.svg");
 		}
 
 		&_email::after {
 			padding-top: 0;
-			background-image: url("../../images/icons/envelope_red.svg");
+			background-image: url("../images/icons/envelope_red.svg");
 		}
 	}
 }
