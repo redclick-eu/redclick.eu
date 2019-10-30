@@ -4,7 +4,7 @@
         <div class="header-row">
             <div class="header-logo">
                 <a href="{!! esc_url(home_url( '/' )); !!}">
-                    <img src="{!! App\asset_path("images/Logo_white.svg")  !!}" alt="Logo">
+                    <img src="{!! App\asset_path("images/logo_white.svg")  !!}" alt="Logo">
                 </a>
             </div>
             <div class="header-languageSwitch">
