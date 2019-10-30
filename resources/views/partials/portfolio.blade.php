@@ -1,4 +1,3 @@
-@include("partials.title", ["text" => "Portfolio"])
 <div class="portfolio js-portfolio">
     <div class="portfolio-row">
         <ul class="portfolio-menu js-portfolio-menu">

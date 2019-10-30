@@ -1,5 +1,3 @@
-@include("partials.title", ["text" => "Services"])
-
 <div class="services">
     <div class="services-row">
         <div class="services-col">

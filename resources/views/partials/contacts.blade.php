@@ -1,5 +1,4 @@
 @php use App\Controllers\App as A @endphp
-@include("partials.title", ["text" => "Contacts"])
 <div class="contacts">
     <div class="contacts-row">
         <div class="contacts-info">
