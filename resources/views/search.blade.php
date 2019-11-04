@@ -1,18 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.page-header')
+    @include("partials.title", ["text" => wpcl_t("Search")])
 
-  @if (!have_posts())
-    <div class="alert alert-warning">
-      {{ __('Sorry, no results were found.', 'sage') }}
+    <div class="contacts">
+        @if(!empty($items))
+            <ul class="contacts-row">
+                @foreach($items as $item)
+                    <li class="contacts-item">
+                        <a href="{!! $item['link'] !!}">{!! $item['title'] !!}</a>
+                    </li>
+                @endforeach
+            </ul>
+        @else
+            <div class="contacts-row">
+                <div class="contacts-item">
+                    {!! wpcl_t("Sorry, no results were found for your request.") !!}
+                </div>
+            </div>
+        @endif
     </div>
-    {!! get_search_form(false) !!}
-  @endif
-
-  @while(have_posts()) @php the_post() @endphp
-    @include('partials.content-search')
-  @endwhile
-
-  {!! get_the_posts_navigation() !!}
 @endsection
