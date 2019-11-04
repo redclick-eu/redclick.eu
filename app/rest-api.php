@@ -68,7 +68,7 @@ function callback(WP_REST_Request $request) {
 	wp_reset_postdata();
 
 	$to =  $mail;
-	$theme = rc_t('Письмо из формы обратной связи');
+	$theme = wpcl_t('Callback form');
 
 	$subject = $theme . ' от ' . $params['name'];
 	$message = '
@@ -167,7 +167,7 @@ function search(WP_REST_Request $request) {
 	if(empty($out)) {
 		$out[] = [
 			"error" => true,
-			"text" =>  rc_t("Извините, по Вашему запросу ничего не найдено")
+			"text" =>  wpcl_t("Sorry, no results were found for your request.")
 		];
 	}
 
