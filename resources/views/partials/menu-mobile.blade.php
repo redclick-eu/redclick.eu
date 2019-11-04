@@ -10,7 +10,7 @@
 
     <a id="menu-mobile-logo" class="menu-logo <?= get_search_query() ? 'is-active' : '' ?>" href="<?= get_home_url() ?>"></a>
 
-    <?php get_template_part('templates/search-mobile'); ?>
+    @include("partials.search-mobile")
 
     <a class="menu-phone" href="tel:{!! App\create_link_phone(A::redclick("phone_number")) !!}"></a>
 
