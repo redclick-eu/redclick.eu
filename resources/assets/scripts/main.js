@@ -13,3 +13,4 @@ const routes = new Router({
 
 // Load Events
 document.addEventListener('DOMContentLoaded', () => routes.loadEvents());
+ 
