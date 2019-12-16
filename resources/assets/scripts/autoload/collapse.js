@@ -4,6 +4,12 @@ let _showed = [];
 let isOpen = false;
 
 Array.from(_toggle).forEach(function (el) {
+    if(el.classList.contains("is-active")) {
+        _showed = Array.from(document.querySelectorAll(el.getAttribute('data-toggle')));
+        _showed.push(el);
+        isOpen = el;
+    }
+
     el.addEventListener('click', function () {
         window.dispatchEvent(new CustomEvent('toggle.start', {
             detail: { isOpen },
