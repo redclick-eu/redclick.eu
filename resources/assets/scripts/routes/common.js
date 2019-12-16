@@ -79,7 +79,7 @@ export default {
 
         Array.from(document.getElementsByClassName('js-search-form')).forEach((_form) => {
             _form.addEventListener('submit', function (e) {
-                if (this.querySelector('.js-search').value.length === 0 || this.classList.contains('is-active')) {
+                if (this.querySelector('.js-search').value.length === 0) {
                     e.preventDefault();
                 }
             })
