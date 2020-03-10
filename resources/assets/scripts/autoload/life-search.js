@@ -6,7 +6,7 @@ const lang = location.href.split('/')[3];
 Array.from(document.getElementsByClassName('js-search-form')).forEach((_form) => {
     const _list = _form.querySelector('.js-search-list');
     const _input = _form.querySelector('.js-search');
-    const _loupe = _s.parentNode.querySelector('.js-search-loupe');
+    const _loupe = _form.querySelector('.js-search-loupe');
     let abort =  new AbortController();
 
     let timeout;
@@ -51,13 +51,13 @@ Array.from(document.getElementsByClassName('js-search-form')).forEach((_form) =>
             }, 300);
     });
 
-    _form.addEventListener('reset', function() {
+    _form.addEventListener('reset', function(e) {
         e.preventDefault();
 
-        if(!_s.value) {
-            _loupe.dispatchEvent(new Event("click"));
+        if(!_input.value) {
+            _loupe.dispatchEvent(new Event('click'));
         } else {
-            _input.value = "";
+            _input.value = '';
         }
     });
 });
