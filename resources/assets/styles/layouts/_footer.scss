@@ -17,8 +17,24 @@
 		@extend %col-lg-6;
 
 		display: flex;
+		flex-direction: column;
+		align-items: center;
 		justify-content: center;
 		margin-bottom: 10px;
+
+		.menu-list ul {
+			display: flex;
+			flex-direction: column;
+
+			li {
+				padding-right: 10px;
+				text-align: center;
+			}
+
+			@media (min-width: map-get($grid-breakpoints, lg)) {
+				flex-direction: row;
+			}
+		}
 
 		@media (min-width: map-get($grid-breakpoints, lg)) {
 			justify-content: flex-start;
