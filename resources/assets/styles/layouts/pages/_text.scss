@@ -1,0 +1,11 @@
+.text {
+	@extend %container;
+
+	&-row {
+		@extend %row;
+	}
+
+	&-content {
+		@extend %col-12;
+	}
+}
