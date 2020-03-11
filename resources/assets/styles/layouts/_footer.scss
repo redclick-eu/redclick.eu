@@ -18,9 +18,10 @@
 
 		display: flex;
 		flex-direction: row;
+		align-items: center;
+		justify-content: center;
 		flex-wrap: wrap;
 		margin-bottom: 10px;
-		text-align: left;
 
 		& > span {
 			padding-right: 10px;
@@ -29,7 +30,6 @@
 		.menu-list ul {
 			padding-left: 10px;
 			display: flex;
-			flex-direction: column;
 
 			li {
 				padding-right: 10px;
@@ -42,10 +42,6 @@
 				&:hover {
 					text-decoration: none;
 				}
-			}
-
-			@media (max-width: map-get($grid-breakpoints, lg)) {
-				flex-direction: column;
 			}
 		}
 
