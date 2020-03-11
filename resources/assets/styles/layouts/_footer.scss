@@ -23,6 +23,7 @@
 		margin-bottom: 10px;
 
 		.menu-list ul {
+			padding-left: 10px;
 			display: flex;
 			flex-direction: column;
 
@@ -31,7 +32,14 @@
 				text-align: center;
 			}
 
-			@media (min-width: map-get($grid-breakpoints, lg)) {
+			a {
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+			@media (min-width: map-get($grid-breakpoints, sm)) {
 				flex-direction: row;
 			}
 		}
