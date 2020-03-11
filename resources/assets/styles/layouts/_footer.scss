@@ -17,11 +17,10 @@
 		@extend %col-lg-6;
 
 		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+		flex-direction: row;
 		flex-wrap: wrap;
 		margin-bottom: 10px;
+		text-align: left;
 
 		& > span {
 			padding-right: 10px;
@@ -45,8 +44,8 @@
 				}
 			}
 
-			@media (min-width: map-get($grid-breakpoints, sm)) {
-				flex-direction: row;
+			@media (max-width: map-get($grid-breakpoints, lg)) {
+				flex-direction: column;
 			}
 		}
 
