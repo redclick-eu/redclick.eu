@@ -20,7 +20,12 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		flex-wrap: wrap;
 		margin-bottom: 10px;
+
+		& > span {
+			padding-right: 10px;
+		}
 
 		.menu-list ul {
 			padding-left: 10px;
