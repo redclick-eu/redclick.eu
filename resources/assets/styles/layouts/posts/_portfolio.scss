@@ -90,11 +90,22 @@
 				h6 {
 					font-size: 24px;
 					font-weight: bold;
-					background-image: url("../images/icons/question.svg");
 					background-size: 30px;
 					padding-left: 35px;
 					background-repeat: no-repeat;
 					background-position: 0 center;
+				}
+
+				&_task h6{
+					background-image: url("../images/icons/question.svg");
+				}
+
+				&_solution h6{
+					background-image: url("../images/icons/lightbulb.svg");
+				}
+
+				&_result h6{
+					background-image: url("../images/icons/check.svg");
 				}
 			}
 		}
