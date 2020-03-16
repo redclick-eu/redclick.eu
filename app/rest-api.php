@@ -64,7 +64,7 @@ function callback(WP_REST_Request $request) {
 
 	$page = new WP_Query(['pagename' => 'mainpage']);
 	$page->the_post();
-	$mail = get_field('email');
+	$mail = get_field('email_address');
 	wp_reset_postdata();
 
 	$to =  $mail;
