@@ -45,6 +45,7 @@
 		@extend %col-3;
 
 		font-size: 20px;
+		text-align: right;
 		color: $red;
 
 		@media (min-width: map-get($grid-breakpoints, xl)) {
