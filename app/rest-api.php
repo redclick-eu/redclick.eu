@@ -83,7 +83,7 @@ function callback(WP_REST_Request $request) {
       </tr>
       <tr>
         <td>E-mail</td>
-        <td>' . $params['mail'] . '</td>
+        <td>' . $params['email'] . '</td>
       </tr>
       <tr>
         <td>Сообщение</td>
@@ -92,7 +92,7 @@ function callback(WP_REST_Request $request) {
     </table>
     ';
 	$headers = "Content-type: text/html; charset=utf-8\r\n";
-	$headers .= 'Reply-To: ' . $params['mail'] . "\r\n";
+	$headers .= 'Reply-To: ' . $params['email'] . "\r\n";
 
 	wp_mail($to, $subject, $message, $headers);
 
