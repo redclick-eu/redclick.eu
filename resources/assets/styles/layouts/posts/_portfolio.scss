@@ -36,7 +36,7 @@
 				@extend %col-md-6;
 
 				display: flex;
-				justify-content: flex-end;
+				justify-content: flex-start;
 				font-size: 14px;
 
 				span {
@@ -48,8 +48,8 @@
 					background-position: 0 center;
 				}
 
-				@media (min-width: map-get($grid-breakpoints, sm)) {
-					justify-content: flex-start;
+				@media (min-width: map-get($grid-breakpoints, md)) {
+					justify-content: flex-end;
 				}
 			}
 
