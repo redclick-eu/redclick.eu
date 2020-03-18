@@ -10,7 +10,7 @@
         <label for="contactsCheckbox"></label>
         <span>{!! wpcl_t("I have read and agree to the terms of") !!} <span class="form-link" data-toggle="#privacyPolicy, #backdrop">{!! wpcl_t("the privacy policy") !!}</span>.</span>
     </div>
-    <input type="submit" value="Send" class="form-submit  g-recaptcha" disabled="disabled">
+    <input type="submit" value="{!! wpcl_t("Send") !!}" class="form-submit  g-recaptcha" disabled="disabled">
     <div class="form-backdrop js-backdrop"><span>{!! wpcl_t("Message was successfully delivered") !!}</span></div>
 </form>
 
