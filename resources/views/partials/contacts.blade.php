@@ -8,7 +8,7 @@
             <div class="contacts-blocks">
                 <div class="contacts-block">
                     <span class="contacts-item_label">{!! wpcl_t("Company name") !!}:</span>
-                    <span class="contacts-item_value">{!! A::redclick("company_name") !!}</span>
+                    <span class="contacts-item_value">{!! A::redclick("legal_name") !!}</span>
                     <span class="contacts-item_label">{!! wpcl_t("Reg code") !!}:</span>
                     <span class="contacts-item_value">{!! A::redclick("reg_code") !!}</span>
                     <span class="contacts-item_label">{!! wpcl_t("KMKR") !!}:</span>
