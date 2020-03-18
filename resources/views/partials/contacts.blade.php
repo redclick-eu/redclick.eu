@@ -18,9 +18,9 @@
                 </div>
                 <div class="contacts-block">
                     <span class="contacts-item_label">{!! wpcl_t("Phone") !!}:</span>
-                    <span class="contacts-item_value">{!! A::redclick("phone_number") !!}</span>
+                    <a href="tel:{!! App\create_link_phone(A::redclick("phone_number")) !!}" class="contacts-item_value">{!! A::redclick("phone_number") !!}</a>
                     <span class="contacts-item_label">{!! wpcl_t("E-mail") !!}:</span>
-                    <span class="contacts-item_value">{!! A::redclick("email_address") !!}</span>
+                    <a href="mailto:{!! A::redclick("email_address") !!}" class="contacts-item_value">{!! A::redclick("email_address") !!}</a>
                     <span class="contacts-item_label">{!! wpcl_t("Working hours") !!}:</span>
                     <span class="contacts-item_value">{!! A::redclick("work_time") !!}</span>
                 </div>
