@@ -3,7 +3,7 @@
     <div class="footer-container">
         <div class="footer-row">
             <div class="footer-copyright"><span>© {!! A::redclick("company_name") !!}, {!! date("Y") !!}.</span>
-                <?php wp_nav_menu(["theme_location" => "footer_navigation"]) ?>
+                <?php wp_nav_menu(["theme_location" => "footer_navigation", 'container_class' => 'menu_footer']) ?>
             </div>
             <div class="footer-links">
                 <a target="_blank" rel="nofollow" href="tel:{!! App\create_link_phone(A::redclick("phone_number")) !!}" class="footer-link footer-link_phone">{!! A::redclick("phone_number") !!}</a>
