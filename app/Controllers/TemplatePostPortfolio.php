@@ -35,7 +35,7 @@ class TemplatePostPortfolio extends Controller
 	    $output = "";
 
 	    foreach ($services as $s) {
-	        $output.= $s . " | ";
+	        $output.= wpcl_t($s) . " | ";
         }
 
 	    return substr($output, 0, strlen($output) - 2);
