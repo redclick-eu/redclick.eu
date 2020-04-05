@@ -2,7 +2,7 @@
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-row">
-            <div class="footer-copyright"><span>© {!! A::redclick("company_name") !!}, {!! date("Y") !!}</span>
+            <div class="footer-copyright"><span>© {!! A::redclick("company_name") !!}, {!! date("Y") !!}.</span>
                 <?php wp_nav_menu(["theme_location" => "footer_navigation"]) ?>
             </div>
             <div class="footer-links">
