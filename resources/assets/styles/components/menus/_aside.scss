@@ -37,13 +37,21 @@
 			font-weight: bold;
 		}
 
-		&-languageSwitch .languageSwitch {
-			text-align: left;
-			margin: 0 15px;
-			color: $white;
+		&-languageSwitch {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			margin-top: 30px;
+			
+			.languageSwitch {
+				width: 100px;
+				margin: 0 15px;
+				text-align: left;
+				color: $white;
 
-			&-arrow {
-				right: 0;
+				&-arrow {
+					right: 0;
+				}
 			}
 		}
 	}
