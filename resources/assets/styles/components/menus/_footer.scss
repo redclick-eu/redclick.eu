@@ -1,0 +1,25 @@
+.menu {
+	$self: &;
+
+	&_footer {
+		#{$self} {
+			&-list {
+				padding-left: 10px;
+				display: flex;
+			}
+
+			&-item {
+				padding-right: 10px;
+				text-align: center;
+			}
+
+			&-link {
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}

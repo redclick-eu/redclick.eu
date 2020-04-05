@@ -27,24 +27,6 @@
 			padding-right: 10px;
 		}
 
-		.menu-list {
-			padding-left: 10px;
-			display: flex;
-
-			li {
-				padding-right: 10px;
-				text-align: center;
-			}
-
-			a {
-				text-decoration: underline;
-
-				&:hover {
-					text-decoration: none;
-				}
-			}
-		}
-
 		@media (min-width: map-get($grid-breakpoints, lg)) {
 			justify-content: flex-start;
 			margin-bottom: 0;
