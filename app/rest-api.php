@@ -156,7 +156,7 @@ function search(WP_REST_Request $request) {
 			if (strpos(mb_strtolower($cat->cat_name), mb_strtolower($params['keyword'])) !== false) {
 				$max--;
 				$out[] = [
-					"href" => esc_url(get_category_link($cat->term_id)),
+					"href" => esc_url(get_term_link($cat->term_id)),
 					"title" => $cat->name
 				];
 			}

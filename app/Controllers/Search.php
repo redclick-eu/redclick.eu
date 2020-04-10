@@ -22,7 +22,7 @@ class Search extends Controller
             if (strpos(mb_strtolower($cat->cat_name), mb_strtolower(get_query_var('s'))) !== false) {
                 $items[] = [
                     'title' => $cat->name,
-                    'link' => get_category_link($cat->term_id),
+                    'link' => get_term_link($cat->term_id),
                 ];
             }
         }
