@@ -1,4 +1,4 @@
-@include("partials.title", ["text" => "Reviews"])
+@include("partials.title", ["text" => wpcl_t("Reviews")])
 <div class="reviews siema-carousel">
     <div class="reviews-row">
         <div class="reviews-arrow reviews-arrow_left siema-arrow_left"></div>
