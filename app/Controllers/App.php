@@ -62,7 +62,7 @@ class App extends Controller
 
         foreach ($query->posts as $post) {
             $services[get_field('service_type', $post->ID)][] = [
-                'title' => get_field('service_name', $post->ID),
+                'title' => get_the_title($post->ID),
                 'link' => get_permalink($post->ID)
             ];
         }
