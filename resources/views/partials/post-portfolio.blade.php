@@ -1,6 +1,6 @@
 @include("partials.title", ["text" => $post_vars['title']])
 
-<div class="post_portfolio">
+<div class="post post_portfolio">
     <div class="post-container">
         <div class="post-row">
             <div class="post-site"><a href="{!! $post_vars['site_url'] !!}">{!! $post_vars['site'] !!}</a></div>

@@ -1,6 +1,6 @@
 @include("partials.title", ["text" => $post_vars['title']])
 
-<div class="post_services">
+<div class="post post_services">
     <div class="post-row">
         <div class="post-content">
             {!! $post_vars['content'] !!}
