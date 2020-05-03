@@ -3,6 +3,6 @@
     <h4 class="privacyPolicy-header">{!! wpcl_t("Privacy policy") !!}</h4>
     <div class="privacyPolicy-close" data-toggle="#privacyPolicy, #backdrop" data-toggle-type="close"></div>
     <div class="privacyPolicy-content">
-        {!! A::redclick("PrivacyPolicyWindow") !!}
+        {!! $privacy_policy_content !!}
     </div>
 </div>

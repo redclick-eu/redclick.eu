@@ -119,4 +119,14 @@ class App extends Controller
 
         return $output;
     }
+
+    public function privacy_policy_content()
+    {
+        $query = new WP_Query(['post_type' => 'page', 'pagename' => 'privacy']);
+        if (!empty($query->posts)) {
+            return $query->posts[0]->post_content;
+        } else {
+            return '';
+        }
+    }
 }
