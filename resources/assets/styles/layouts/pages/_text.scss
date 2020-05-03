@@ -8,4 +8,12 @@
 	&-content {
 		@extend %col-12;
 	}
+
+	a {
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
 }
