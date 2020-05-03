@@ -10,10 +10,6 @@
 	}
 
 	a {
-		text-decoration: underline;
-
-		&:hover {
-			text-decoration: none;
-		}
+		@extend %link;
 	}
 }

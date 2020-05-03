@@ -45,4 +45,8 @@
 		background-size: contain;
 		cursor: pointer;
 	}
+
+	a {
+		@extend %link;
+	}
 }
