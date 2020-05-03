@@ -14,6 +14,7 @@ const config = require('./config');
 const assetsFilenames = (config.enabled.cacheBusting) ? config.cacheBusting : '[name]';
 
 let webpackConfig = {
+  mode: config.mode,
   context: config.paths.assets,
   entry: config.entry,
   devtool: (config.enabled.sourceMaps ? '#source-map' : undefined),
