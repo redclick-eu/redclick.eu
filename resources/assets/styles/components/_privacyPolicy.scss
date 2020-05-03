@@ -49,4 +49,8 @@
 	a {
 		@extend %link;
 	}
+
+	ul {
+		@extend %ul;
+	}
 }
