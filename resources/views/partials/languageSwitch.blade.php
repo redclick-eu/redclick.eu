@@ -4,7 +4,7 @@
     <ul class="languageSwitch-list">
         @foreach($wpml_languages as $lang)
             <li class="languageSwitch-item">
-                <a href="{!! $lang['url'] !!}" class="languageSwitch-link">{!! $lang["native_name"] !!}</a>
+                <a href="{!! $lang['url'] !!}" class="languageSwitch-link">{!! $lang["translated_name"] !!}</a>
             </li>
         @endforeach
     </ul>
