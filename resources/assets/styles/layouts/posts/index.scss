@@ -6,4 +6,9 @@
 	ul {
 		@extend %ul;
 	}
+
+	p {
+		line-height: 1.6rem;
+		text-align: justify;
+	}
 }
