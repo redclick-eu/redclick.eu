@@ -14,7 +14,9 @@
                     <span class="contacts-item_label">{!! wpcl_t("KMKR") !!}:</span>
                     <span class="contacts-item_value">{!! A::redclick("kmkr") !!}</span>
                     <span class="contacts-item_label">{!! wpcl_t("Address") !!}:</span>
-                    <span class="contacts-item_value">{!! A::redclick("legal_region") !!}, {!! A::redclick("legal_address") !!}</span>
+                    <span class="contacts-item_value">{!! A::redclick("legal_region") !!}, {!! A::redclick("legal_city") !!}, {!! A::redclick("legal_address") !!}</span>
+                    <span class="contacts-item_label">{!! wpcl_t("Post index") !!}:</span>
+                    <span class="contacts-item_value">{!! A::redclick("legal_postindex") !!}</span>
                 </div>
                 <div class="contacts-block">
                     <span class="contacts-item_label">{!! wpcl_t("Phone") !!}:</span>
