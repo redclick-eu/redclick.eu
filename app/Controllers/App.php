@@ -126,7 +126,7 @@ class App extends Controller
         if (!empty($query->posts)) {
             return $query->posts[0]->post_content;
         } else {
-            return '';
+            return 'Soon';
         }
     }
 }
