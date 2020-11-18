@@ -13,3 +13,5 @@
         </div>
     </div>
 </footer>
+
+<button id="up" class="btn-scroll-top invisible"></button>
