@@ -7,5 +7,6 @@
 
 @section('content')
     @include('partials.post-services')
+    @include('partials.contacts')
 @endsection
 

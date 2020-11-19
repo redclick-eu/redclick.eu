@@ -8,4 +8,5 @@
 @section('content')
     @include("partials.title", ["text" => get_the_title()])
     @include('partials.text')
+    @include('partials.contacts')
 @endsection

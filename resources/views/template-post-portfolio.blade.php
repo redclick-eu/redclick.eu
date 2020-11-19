@@ -7,5 +7,6 @@
 
 @section('content')
     @include('partials.post-portfolio')
+    @include('partials.contacts')
 @endsection
 
