@@ -17,6 +17,7 @@
         @include('partials.footer')
         @include('partials.backdrop')
         @include('partials.preloader')
+        @include('partials.privacyPolicy')
         @php wp_footer() @endphp
 
     </body>

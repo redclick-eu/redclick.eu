@@ -13,5 +13,3 @@
     <input type="submit" value="{!! wpcl_t("Send") !!}" class="form-submit  g-recaptcha" disabled="disabled">
     <div class="form-backdrop js-backdrop"><span>{!! wpcl_t("Message was successfully delivered") !!}</span></div>
 </form>
-
-@include('partials.privacyPolicy')
