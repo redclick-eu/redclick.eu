@@ -7,5 +7,5 @@
 
 @section('content')
     @include("partials.title", ["text" => wpcl_t("Contacts")])
-    @include('partials.contacts')
+    @include('partials.contacts-info')
 @endsection
