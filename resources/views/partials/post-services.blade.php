@@ -15,8 +15,5 @@
                 <span>{!! str_replace("%%time%%", $post_vars['deadline'], wpcl_t("for %%time%% days")) !!}</span>
             </div>
         </div>
-        <div class="post-form">
-            @include("partials.form-contacts")
-        </div>
     </div>
 </div>

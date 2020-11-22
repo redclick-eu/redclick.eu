@@ -16,18 +16,18 @@
 			}
 
 			&-info {
+				@extend %row;
 				@extend %col-12;
-				@extend %col-lg-6;
 
+				margin-left: 0;
+				margin-right: 0;
 				margin-bottom: 15px;
 			}
 
-			&-form {
-				@extend %col-12;
-				@extend %col-lg-6;
-			}
-
 			&-card {
+				@extend %col-12;
+				@extend %col-md-6;
+
 				padding: 20px 0 20px 20%;
 				background-repeat: no-repeat;
 				background-size: 17%;
@@ -50,6 +50,7 @@
 				}
 
 				@media (min-width: map-get($grid-breakpoints, md)) {
+					padding-left: 10%;
 					min-height: 145px;
 				}
 			}
