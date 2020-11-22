@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="contacts-form">
-            {{--ToDO add map--}}
+            <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1iWC99TH0_Ln2mIrlMlAraxf37CVUjiFS" width="640" height="480"></iframe>
         </div>
     </div>
 </div>
