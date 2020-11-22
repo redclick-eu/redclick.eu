@@ -7,9 +7,11 @@
   <link rel="shortcut icon" href="{!! App\asset_path("images/favicon.png")  !!}" type="image/x-icon"/>
 
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Open+Sans:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
   {{--
+    font-family: 'IBM Plex Sans', sans-serif;
     font-family: 'Open Sans', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
   --}}
   @php wp_head() @endphp
 </head>
