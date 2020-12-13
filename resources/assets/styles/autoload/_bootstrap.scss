@@ -4,6 +4,11 @@
 %container {
   @include make-container();
   @include make-container-max-widths();
+
+  @media (max-width: 576px) {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 
 %container-fluid {
