@@ -5,6 +5,9 @@
         <div class="post-content">
             {!! $post_vars['content'] !!}
         </div>
+        @if(!empty($post_vars['carousel']))
+            @include('partials.carousel', ['images' => $post_vars['carousel']])
+        @endif
         <div class="post-info">
             <div class="post-card post-card_cost">
                 <h6>{!! wpcl_t("Cost") !!}</h6>
