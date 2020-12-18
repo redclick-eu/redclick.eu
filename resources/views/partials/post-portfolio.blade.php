@@ -5,15 +5,9 @@
         <div class="post-row">
             <div class="post-site"><a href="{!! $post_vars['site_url'] !!}">{!! $post_vars['site'] !!}</a></div>
             <div class="post-services"><span>{!! $post_vars['services'] !!}</span></div>
-            <div class="post-carousel siema-carousel">
-                <div class="post-arrow post-arrow_left siema-arrow_left"></div>
-                <div class="post-carouselInner siema-inner">
-                    @foreach($post_vars['carousel'] as $carousel)
-                        <img src="{!! $carousel['url'] !!}" alt="{!! $carousel['alt'] !!}">
-                    @endforeach
-                </div>
-                <div class="post-arrow post-arrow_right siema-arrow_right"></div>
-            </div>
+            @if(!empty($post_vars['carousel']))
+                @include('partials.carousel', ['images' => $post_vars['carousel']])
+            @endif
             <div class="post-text post-text_task">
                 <h6>{!! wpcl_t("Task") !!}</h6>
                 {!! $post_vars['text']['task'] !!}

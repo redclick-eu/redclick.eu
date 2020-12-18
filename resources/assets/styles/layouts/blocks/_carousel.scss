@@ -1,0 +1,27 @@
+.carousel {
+	@extend %col-12;
+
+	margin-bottom: 30px;
+
+	&-arrow {
+		position: absolute;
+		top: 0;
+		z-index: 10;
+		height: 100%;
+		width: 8.33333%;
+		cursor: pointer;
+		background-size: 63px;
+		background-repeat: no-repeat;
+		background-position: center center;
+
+		&_left {
+			left: 0;
+			background-image: url("../images/icons/arrow_l.svg");
+		}
+
+		&_right {
+			right: 0;
+			background-image: url("../images/icons/arrow_r.svg");
+		}
+	}
+}
