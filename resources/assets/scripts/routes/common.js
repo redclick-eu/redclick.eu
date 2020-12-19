@@ -101,14 +101,18 @@ export default {
 
         const googleMap = document.getElementById('googleMap');
         if(googleMap) {
-            const adr = JSON.parse(googleMap.getAttribute('data-initData'));
-            console.log(adr);
+            const [coordinates, key] = JSON.parse(googleMap.getAttribute('data-initData'));
+
+            const script_recaptcha = document.createElement('script');
+            script_recaptcha.src = `https://maps.googleapis.com/maps/api/js?key=${key}&callback=initMap`;
+            document.head.appendChild(script_recaptcha);
+
             window.initMap = function () {
                 new window.google.maps.Marker({
-                    position: adr,
+                    position: coordinates,
                     map: new window.google.maps.Map(googleMap, {
                         zoom: 17,
-                        center: adr,
+                        center: coordinates,
                     }),
                 });
             }

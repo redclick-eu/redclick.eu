@@ -134,8 +134,11 @@ class App extends Controller
         self::redclick();
 
         return json_encode([
-           'lat' => isset(self::$redclick['maps_lat']) ? (float)self::$redclick['maps_lat'] : 0,
-           'lng' => isset(self::$redclick['maps_lng']) ? (float)self::$redclick['maps_lng'] : 0
+           'coordinates' => [
+               'lat' => isset(self::$redclick['maps_lat']) ? (float)self::$redclick['maps_lat'] : 0,
+               'lng' => isset(self::$redclick['maps_lng']) ? (float)self::$redclick['maps_lng'] : 0,
+           ],
+           'key' => isset(self::$redclick['maps_key']) ? (float)self::$redclick['maps_key'] : 0
         ]);
     }
 }

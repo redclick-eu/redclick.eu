@@ -15,14 +15,6 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
     wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), false, null, true);
 
-    wp_enqueue_script('google_maps', "https://maps.googleapis.com/maps/api/js?key=" . App::redclick('maps_key') . "&callback=initMap", ['sage/main.js'], null, true);
-    add_filter( 'script_loader_tag', function($tag, $handle) {
-        if('google_maps' !== $handle) {
-            return $tag;
-        }
-        return str_replace( ' src', ' async="async" src', $tag );
-    }, 10, 2 );
-
 
     if(! is_admin()) {
         wp_dequeue_style( 'wp-block-library' );
