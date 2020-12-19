@@ -11,6 +11,7 @@
 			}
 
 			&-item {
+				position: relative;
 				display: flex;
 				height: 100%;
 				padding: 0 15px;
@@ -18,6 +19,17 @@
 				text-align: center;
 				text-transform: uppercase;
 				font-weight: bold;
+
+				&_current::before,
+				&:hover::before {
+					content: "";
+					position: absolute;
+					left: 0;
+					top: 100%;
+					width: 100%;
+					height: 5px;
+					background-color: $red;
+				}
 			}
 
 			&-link {
