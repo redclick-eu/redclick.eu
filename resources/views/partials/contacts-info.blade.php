@@ -26,8 +26,8 @@
                 </div>
             </div>
         </div>
-        <div class="contacts-form">
-            {!! A::redclick("google_maps_frame") !!}
+        <div class="contacts-map">
+            <div class="map" id="googleMap" data-initData='{!! $google_maps_data !!}'></div>
         </div>
     </div>
 </div>

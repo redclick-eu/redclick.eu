@@ -129,4 +129,13 @@ class App extends Controller
             return 'Soon';
         }
     }
+
+    public function google_maps_data() {
+        self::redclick();
+
+        return json_encode([
+           'lat' => isset(self::$redclick['maps_lat']) ? self::$redclick['maps_lat'] : 0,
+           'lng' => isset(self::$redclick['maps_lng']) ? self::$redclick['maps_lng'] : 0
+        ]);
+    }
 }

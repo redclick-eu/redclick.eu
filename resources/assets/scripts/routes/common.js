@@ -97,6 +97,21 @@ export default {
             window.addEventListener('toggle.closed', () => {
                 _form.querySelector('.js-search').blur();
             })
-        })()
+        })();
+
+        const googleMap = document.getElementById('googleMap');
+        if(googleMap) {
+            const adr = JSON.parse(googleMap.getAttribute('data-initData'));
+            console.log(adr);
+            window.initMap = function () {
+                new window.google.maps.Marker({
+                    position: adr,
+                    map: new window.google.maps.Map(googleMap, {
+                        zoom: 17,
+                        center: adr,
+                    }),
+                });
+            }
+        }
     },
 };
