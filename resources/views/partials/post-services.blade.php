@@ -6,6 +6,7 @@
             {!! $post_vars['content'] !!}
         </div>
         @if(!empty($post_vars['carousel']))
+            <h2 class="post-title">Cases: </h2>
             @include('partials.carousel', ['images' => $post_vars['carousel']])
         @endif
         <div class="post-info">

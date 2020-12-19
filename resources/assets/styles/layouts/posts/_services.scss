@@ -15,6 +15,10 @@
 				@extend %col-12;
 			}
 
+			&-title {
+				@extend %col-12;
+			}
+
 			&-info {
 				@extend %row;
 				@extend %col-12;
