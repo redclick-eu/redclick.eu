@@ -81,10 +81,11 @@ add_action('after_setup_theme', function () {
     });
 
 
-    add_filter('nav_menu_css_class', function ($classes) {
+    add_filter('nav_menu_css_class', function ($classes, $item) {
         $c[] = 'menu-item';
 
-        if (in_array('current-menu-item', $classes) || in_array('current_page_item', $classes)) {
+        if (in_array('current-menu-item', $classes) || in_array('current_page_item', $classes)
+            || ($item->object === 'category' && in_category($item->object_id, get_the_ID()))) {
             $c[] = 'menu-item_current';
         }
 
