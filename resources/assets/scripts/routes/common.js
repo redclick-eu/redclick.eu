@@ -101,7 +101,7 @@ export default {
 
         const googleMap = document.getElementById('googleMap');
         if(googleMap) {
-            const [coordinates, key] = JSON.parse(googleMap.getAttribute('data-initData'));
+            const {coordinates, key} = JSON.parse(googleMap.getAttribute('data-initData'));
 
             const script_recaptcha = document.createElement('script');
             script_recaptcha.src = `https://maps.googleapis.com/maps/api/js?key=${key}&callback=initMap`;
