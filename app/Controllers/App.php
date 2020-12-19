@@ -138,7 +138,7 @@ class App extends Controller
                'lat' => isset(self::$redclick['maps_lat']) ? (float)self::$redclick['maps_lat'] : 0,
                'lng' => isset(self::$redclick['maps_lng']) ? (float)self::$redclick['maps_lng'] : 0,
            ],
-           'key' => isset(self::$redclick['maps_key']) ? (float)self::$redclick['maps_key'] : 0
+           'key' => isset(self::$redclick['maps_key']) ? self::$redclick['maps_key'] : 0
         ]);
     }
 }
