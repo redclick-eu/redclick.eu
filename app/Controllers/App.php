@@ -31,7 +31,7 @@ class App extends Controller
         wp_reset_postdata();
 
         if ($name !== false) {
-            return self::$redclick[$name];
+            return isset(self::$redclick[$name]) ? self::$redclick[$name] : '%%' . $name . '%%';
         }
         return self::$redclick;
     }
