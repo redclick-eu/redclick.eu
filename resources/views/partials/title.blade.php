@@ -1,5 +1,6 @@
+@php($size ?? 1)
 <div class="title">
     <div class="title-container">
-        <h1 class="title-text">{!! $text !!}</h1>
+        <h{!! $size !!} class="title-text">{!! $text !!}</h{!! $size !!}>
     </div>
 </div>
