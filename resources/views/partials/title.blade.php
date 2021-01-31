@@ -1,4 +1,4 @@
-@php($size ?? 1)
+@php($size = isset($size) && !empty($size) ? $size : 1)
 <div class="title">
     <div class="title-container">
         <h{!! $size !!} class="title-text">{!! $text !!}</h{!! $size !!}>
