@@ -1,4 +1,6 @@
 .title {
+	$self: &;
+
 	@extend %container-fluid;
 
 	margin-bottom: 25px;
@@ -19,5 +21,9 @@
 		background-size: 30px;
 		background-position: 0 center;
 		background-repeat: no-repeat;
+	}
+
+	h1#{$self}-text {
+		margin-bottom: 0;
 	}
 }
