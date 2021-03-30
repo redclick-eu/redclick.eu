@@ -21,11 +21,13 @@ class TemplatePostServices extends Controller
     private function carousel($carousel) {
         $output = [];
 
-        foreach ($carousel as $c) {
-            $output[] = [
-                'alt' => $c['photo']['title'],
-                'url' => $c['photo']['url']
-            ];
+        if(is_array($carousel)) {
+            foreach ($carousel as $c) {
+                $output[] = [
+                    'alt' => $c['photo']['title'],
+                    'url' => $c['photo']['url']
+                ];
+            }
         }
 
         return $output;
