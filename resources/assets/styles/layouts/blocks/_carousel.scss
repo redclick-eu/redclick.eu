@@ -23,5 +23,15 @@
 			right: 0;
 			background-image: url("../images/icons/arrow_r.svg");
 		}
+
+		@media (min-width: map-get($grid-breakpoints, xl)) {
+			&_left {
+				left: -90px;
+			}
+
+			&_right {
+				right: -90px;
+			}
+		}
 	}
 }
