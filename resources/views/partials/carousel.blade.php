@@ -1,4 +1,4 @@
-<div class="carousel siema-carousel">
+<div class="carousel siema-carousel" data-settings='{"intervalMilliseconds": 5000}'>
     <div class="carousel-arrow carousel-arrow_left siema-arrow_left"></div>
     <div class="carousel-carouselInner siema-inner">
         @foreach($images as $image)
