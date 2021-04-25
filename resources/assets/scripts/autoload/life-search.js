@@ -1,24 +1,51 @@
-const lang = location.href.split('/')[3];
+const lang = window.location.href.split('/')[3];
 
-Array.from(document.getElementsByClassName('js-search-form')).forEach((_form) => {
-    const _list = _form.querySelector('.js-search-list');
-    const _input = _form.querySelector('.js-search');
-    const _loupe = _form.querySelector('.js-search-loupe');
+function createListItems(list, data) {
+    while (list.firstChild) {
+        list.removeChild(list.firstChild);
+    }
+
+    if (data.length === 1 && data[0].error) {
+        const item = document.createElement('li');
+        item.classList.add('m-empty');
+        item.innerText = data[0].text;
+        list.appendChild(item);
+        return;
+    }
+
+    const container = document.createDocumentFragment();
+    data.forEach((el) => {
+        const item = document.createElement('li');
+        const link = document.createElement('a');
+
+        link.innerText = el.title;
+        link.href = el.href;
+
+        item.appendChild(link);
+        container.appendChild(item);
+    });
+    list.appendChild(container);
+}
+
+document.getElementsByClassName('js-search-form').forEach((_form) => {
+    const list = _form.querySelector('.js-search-list');
+    const input = _form.querySelector('.js-search');
+    const loupe = _form.querySelector('.js-search-loupe');
     let abort = new AbortController();
 
     let timeout;
 
-    _input.addEventListener('input', function () {
+    input.addEventListener('input', () => {
         this.value = this.value.replace(/^\s+/, '');
 
         if (this.value.length === 0) {
             clearTimeout(timeout);
-            _list.classList.remove('m-show', 'm-search');
+            list.classList.remove('m-show', 'm-search');
             return;
         }
 
-        _list.innerHTML = '';
-        _list.classList.add('m-show', 'm-search');
+        list.innerHTML = '';
+        list.classList.add('m-show', 'm-search');
 
         clearTimeout(timeout);
         timeout = setTimeout(() => {
@@ -37,8 +64,8 @@ Array.from(document.getElementsByClassName('js-search-form')).forEach((_form) =>
             }).then((r) => r.json())
                 .then((response) => {
                     console.log(response);
-                    create_search_list_items(_list, response);
-                    _list.classList.remove('m-search');
+                    createListItems(list, response);
+                    list.classList.remove('m-search');
                 })
                 .catch((reason) => {
                     if (!(reason instanceof DOMException)) {
@@ -51,37 +78,10 @@ Array.from(document.getElementsByClassName('js-search-form')).forEach((_form) =>
     _form.addEventListener('reset', (e) => {
         e.preventDefault();
 
-        if (!_input.value) {
-            _loupe.dispatchEvent(new Event('click'));
+        if (!input.value) {
+            loupe.dispatchEvent(new Event('click'));
         } else {
-            _input.value = '';
+            input.value = '';
         }
     });
 });
-
-function create_search_list_items(_list, data) {
-    while (_list.firstChild) {
-        _list.removeChild(_list.firstChild);
-    }
-
-    if (data.length === 1 && data[0].error) {
-        const _item = document.createElement('li');
-        _item.classList.add('m-empty');
-        _item.innerText = data[0].text;
-        _list.appendChild(_item);
-        return;
-    }
-
-    const _container = document.createDocumentFragment();
-    data.forEach((el) => {
-        const _item = document.createElement('li');
-        const _link = document.createElement('a');
-
-        _link.innerText = el.title;
-        _link.href = el.href;
-
-        _item.appendChild(_link);
-        _container.appendChild(_item);
-    });
-    _list.appendChild(_container);
-}
