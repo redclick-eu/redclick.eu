@@ -2,15 +2,31 @@ import {
     validate, validateAll, serialize, reset,
 } from '../util/form';
 
+import btnUp from "../components/btnUp";
+import lifeSearch from "../components/lifeSearch";
+import portfolioGrid from "../components/portfolioGrid";
+import preloader from "../components/preloader";
+import stickyMenu from "../components/stickyMenu";
+
+import collapse from "../logic/collapse";
+import mouseOrKeyboard from "../logic/mouseOrKeyboard";
+
 export default {
     init() {
-        setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 500);
+        btnUp();
+        lifeSearch();
+        portfolioGrid();
+        preloader();
+        stickyMenu();
 
-        const script_recaptcha = document.createElement('script');
-        script_recaptcha.src = 'https://www.google.com/recaptcha/api.js?onload=recaptcha_onload&render=explicit';
-        document.head.appendChild(script_recaptcha);
+        collapse();
+        mouseOrKeyboard();
 
-        window.recaptcha_onload = function () {
+        const scriptRecaptcha = document.createElement('script');
+        scriptRecaptcha.src = 'https://www.google.com/recaptcha/api.js?onload=recaptcha_onload&render=explicit';
+        document.head.appendChild(scriptRecaptcha);
+
+        window.recaptcha_onload = function recaptcha_onload () {
             Array.from(document.getElementsByClassName('g-recaptcha')).forEach((_r) => {
                 window.grecaptcha.render(_r, {
                     sitekey: '6LcFh7AUAAAAAHZr62yo5ptkHQgSo3o_pL2kV4_y',
@@ -24,8 +40,8 @@ export default {
             });
         };
 
-        const _forms = document.querySelectorAll('form[data-ajax]');
-        _forms.forEach((_form) => {
+        const forms = document.querySelectorAll('form[data-ajax]');
+        forms.forEach((_form) => {
             _form.setAttribute('novalidate', '');
             _form.querySelectorAll('input,textarea,select').forEach((_el) => {
                 _el.addEventListener('input', function () {
@@ -104,9 +120,9 @@ export default {
         if (googleMap) {
             const { coordinates, key } = JSON.parse(googleMap.getAttribute('data-initData'));
 
-            const script_recaptcha = document.createElement('script');
-            script_recaptcha.src = `https://maps.googleapis.com/maps/api/js?key=${key}&callback=initMap`;
-            document.head.appendChild(script_recaptcha);
+            const scriptRecaptcha = document.createElement('script');
+            scriptRecaptcha.src = `https://maps.googleapis.com/maps/api/js?key=${key}&callback=initMap`;
+            document.head.appendChild(scriptRecaptcha);
 
             window.initMap = function () {
                 new window.google.maps.Marker({

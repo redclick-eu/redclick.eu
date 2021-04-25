@@ -1,5 +1,5 @@
 import Siema from 'siema';
-import check_mobile from '../util/check-mobile.js';
+import checkMobile from '../util/checkMobile';
 
 let userOnPage = true;
 
@@ -11,68 +11,69 @@ window.addEventListener('focus', () => {
     userOnPage = true;
 });
 
-Siema.prototype.addPagination = function () {
+Siema.prototype.addPagination = function addPagination() {
     const siema = this;
-    const _dots = this.selector.parentNode.querySelector('.siema-dots');
+    const dots = this.selector.parentNode.querySelector('.siema-dots');
 
-    if (_dots === null) {
+    if (dots === null) {
         return;
     }
 
-    while (_dots.firstChild) {
-        _dots.removeChild(_dots.firstChild);
+    while (dots.firstChild) {
+        dots.removeChild(dots.firstChild);
     }
 
-    for (let i = 0; i < this.innerElements.length - this.perPage + 1; i++) {
+    for (let i = 0; i < this.innerElements.length - this.perPage + 1; i += 1) {
         const btn = document.createElement('button');
 
         btn.classList.add('carousel-dot');
         btn.setAttribute('aria-label', `Перейти к слайду ${i + 1}`);
-        btn.addEventListener('click', function () {
+        btn.addEventListener('click', () => {
             siema.goTo(i);
-            this.nextWithTimeout();
+            siema.nextWithTimeout();
 
             Array.from(this.parentNode.childNodes).forEach((el) => el.classList.remove('carousel-dot_active'));
-            this.classList.add('carousel-dot_active');
+            btn.classList.add('carousel-dot_active');
         });
 
         if (i === 0) {
             btn.classList.add('carousel-dot_active');
         }
 
-        _dots.appendChild(btn);
+        dots.appendChild(btn);
     }
 
-    this.dots = _dots;
+    this.dots = dots;
 };
 
-Siema.prototype.addArrows = function () {
-    const _carousel = this.selector.parentNode;
+Siema.prototype.addArrows = function addArrows() {
+    const siema = this;
+    const carousel = siema.selector.parentNode;
 
-    const left = _carousel.querySelector('.siema-arrow_left');
+    const left = carousel.querySelector('.siema-arrow_left');
     if (left !== null) {
         left.addEventListener('click', () => {
-            this.prev();
-            this.nextWithTimeout();
+            siema.prev();
+            left.nextWithTimeout();
         });
     }
 
-    const right = _carousel.querySelector('.siema-arrow_right');
+    const right = carousel.querySelector('.siema-arrow_right');
     if (right !== null) {
         right.addEventListener('click', () => {
-            this.next();
-            this.nextWithTimeout();
+            siema.next();
+            right.nextWithTimeout();
         });
     }
 };
 
-Siema.prototype.addClasses = function () {
+Siema.prototype.addClasses = function addClasses() {
     const wrapper = this.selector.children[0];
     wrapper.classList.add('siema-wrapper');
     Array.from(wrapper.children).forEach((el) => el.classList.add('siema-item'));
 };
 
-Siema.prototype.nextWithTimeout = function () {
+Siema.prototype.nextWithTimeout = function nextWithTimeout() {
     if (this.config.intervalMilliseconds) {
         clearTimeout(this.config.timeOutMark);
         this.config.timeOutMark = setTimeout(() => this.next(), this.config.intervalMilliseconds);
@@ -84,8 +85,8 @@ const defaults = {
     easing: 'ease-out',
     perPage: 1,
     startIndex: 0,
-    draggable: check_mobile(),
-    multipleDrag: check_mobile(),
+    draggable: checkMobile(),
+    multipleDrag: checkMobile(),
     threshold: 20,
     loop: true,
     rtl: false,
@@ -124,13 +125,17 @@ const defaults = {
     },
 };
 
-document.querySelectorAll('.siema-carousel').forEach((carousel) => {
-    const settings = {
-        ...{
-            selector: carousel.querySelector('.siema-inner'),
-        },
-        ...JSON.parse(carousel.getAttribute('data-settings') || '[]'),
-    };
+export default () => {
+    document.querySelectorAll('.siema-carousel').forEach((carousel) => {
+        const settings = {
+            ...{
+                selector: carousel.querySelector('.siema-inner'),
+            },
+            ...JSON.parse(carousel.getAttribute('data-settings') || '[]'),
+        };
 
-    new Siema({ ...defaults, ...settings });
-});
+        /* eslint-disable no-new */
+        new Siema({ ...defaults, ...settings });
+        /* eslint-enable */
+    });
+};
