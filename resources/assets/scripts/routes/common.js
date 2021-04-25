@@ -1,5 +1,4 @@
 import btnUp from '../components/btnUp';
-import formSearch from '../components/formSearch';
 import googleMaps from '../components/googleMaps';
 import lifeSearch from '../components/lifeSearch';
 import portfolioGrid from '../components/portfolioGrid';
@@ -14,7 +13,6 @@ import toggle from '../logic/toggle';
 export default {
     init() {
         btnUp();
-        formSearch();
         googleMaps();
         lifeSearch();
         portfolioGrid();

@@ -28,10 +28,10 @@ function createListItems(list, data) {
 }
 
 export default () => {
-    document.querySelectorAll('.js-search-form').forEach((_form) => {
-        const list = _form.querySelector('.js-search-list');
-        const input = _form.querySelector('.js-search');
-        const loupe = _form.querySelector('.js-search-loupe');
+    document.querySelectorAll('.js-search-form').forEach((form) => {
+        const list = form.querySelector('.js-search-list');
+        const input = form.querySelector('.js-search');
+        const loupe = form.querySelector('.js-search-loupe');
         let abort = new AbortController();
 
         let timeout;
@@ -76,7 +76,13 @@ export default () => {
             }, 300);
         });
 
-        _form.addEventListener('reset', (e) => {
+        form.addEventListener('submit', (e) => {
+            if (form.querySelector('.js-search').value.length === 0) {
+                e.preventDefault();
+            }
+        });
+
+        form.addEventListener('reset', (e) => {
             e.preventDefault();
 
             if (!input.value) {
@@ -84,6 +90,16 @@ export default () => {
             } else {
                 input.value = '';
             }
+        });
+
+        window.addEventListener('toggle.opened', (e) => {
+            if (e.detail.targets.includes(form)) {
+                input.focus();
+            }
+        });
+
+        window.addEventListener('toggle.closed', () => {
+            input.blur();
         });
     });
 };
