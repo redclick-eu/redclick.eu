@@ -35,6 +35,8 @@ module.exports = {
     'no-console': 0,
     'quotes': ['error', 'single'],
       "indent": ["error", 4],
+      "import/extensions": "off",
+      "import/no-unresolved": "off",
     'comma-dangle': [
       'error',
       {
