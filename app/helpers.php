@@ -4,6 +4,8 @@ namespace App;
 
 use Roots\Sage\Container;
 
+use WP_Error;
+
 /**
  * Get the sage container.
  *
@@ -139,4 +141,35 @@ function display_sidebar()
 
 function create_link_phone($tel){
     return preg_replace('/[^\+0-9]/ui', '',$tel );
+}
+
+function recaptcha_verify($response) {
+    if (!function_exists('curl_init')) {
+        return true;
+    }
+
+    $curl_out = false;
+
+    if ($curl = curl_init()) {
+        $curl_data = array(
+            'secret' => '6LcFh7AUAAAAADw8r-VTyz1PA892irpQjOXsA9ip',
+            'response' => $response
+        );
+        curl_setopt($curl, CURLOPT_URL, 'https://www.google.com/recaptcha/api/siteverify');
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $curl_data);
+        $curl_out = json_decode(curl_exec($curl), true);
+        curl_close($curl);
+    }
+
+    if (!$curl_out || !$curl_out['success']) {
+        $data = [];
+        $data['error'][] = 'recaptcha';
+        $data['error']['recaptcha'] = $curl_out;
+        $data['status'] = 403;
+        return new WP_Error('recaptcha', 'recaptcha error', $data);
+    }
+
+    return true;
 }
