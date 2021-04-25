@@ -8,7 +8,7 @@ use WP_Query;
 class App extends Controller
 {
     protected $acf = false;
-    private static $redclick = false;
+    private static $acf_data = false;
 
     public function __construct()
     {
@@ -17,23 +17,30 @@ class App extends Controller
         }
     }
 
-    public static function redclick($name = false)
+    public static function get_field($name = false, $printError = true)
     {
-        if (self::$redclick !== false) {
-            if ($name !== false) {
-                return isset(self::$redclick[$name]) ? self::$redclick[$name] : '%%' . $name . '%%';
-            }
-            return self::$redclick;
+        if (self::$acf_data === false) {
+            $page = new WP_Query(['pagename' => 'mainpage']);
+            self::$acf_data = get_fields($page->post->ID);
         }
-        $page = new WP_Query(['pagename' => 'mainpage']);
-        $page->the_post();
-        self::$redclick = get_fields();
-        wp_reset_postdata();
 
-        if ($name !== false) {
-            return isset(self::$redclick[$name]) ? self::$redclick[$name] : '%%' . $name . '%%';
+        if ($name === false) {
+            return self::$acf_data;
         }
-        return self::$redclick;
+
+        if (isset(self::$acf_data[$name])) {
+            return self::$acf_data[$name];
+        }
+
+        if ($printError) {
+            return '%%' . $name . '%%';
+        }
+
+        return null;
+    }
+
+    public function fields() {
+        return self::get_field();
     }
 
     public function wpml_languages()
@@ -131,14 +138,14 @@ class App extends Controller
     }
 
     public function google_maps_data() {
-        self::redclick();
+        self::get_field();
 
         return json_encode([
            'coordinates' => [
-               'lat' => isset(self::$redclick['maps_lat']) ? (float)self::$redclick['maps_lat'] : 0,
-               'lng' => isset(self::$redclick['maps_lng']) ? (float)self::$redclick['maps_lng'] : 0,
+               'lat' => isset(self::$acf_data['maps_lat']) ? (float)self::$acf_data['maps_lat'] : 0,
+               'lng' => isset(self::$acf_data['maps_lng']) ? (float)self::$acf_data['maps_lng'] : 0,
            ],
-           'key' => isset(self::$redclick['maps_key']) ? self::$redclick['maps_key'] : 0
+           'key' => isset(self::$acf_data['maps_key']) ? self::$acf_data['maps_key'] : 0
         ]);
     }
 }

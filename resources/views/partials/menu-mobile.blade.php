@@ -12,7 +12,7 @@
 
     @include("partials.search-mobile")
 
-    <a class="menu-phone" href="tel:{!! App\create_link_phone(A::redclick("phone_number")) !!}"></a>
+    <a class="menu-phone" href="tel:{!! App\create_link_phone(A::get_field("phone_number")) !!}"></a>
 
     <div class="menu-additional" data-toggle="#info-mobile,#mobile-dots">
         <div class="menu-dots" id="mobile-dots"></div>

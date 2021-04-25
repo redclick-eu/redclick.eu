@@ -14,7 +14,7 @@
                 @include("partials.menu-main")
             </div>
             <div class="header-phone">
-                <a href="tel:{!! App\create_link_phone(A::redclick("phone_number")) !!}">{!! A::redclick("phone_number") !!}</a>
+                <a href="tel:{!! App\create_link_phone(A::get_field("phone_number")) !!}">{!! A::get_field("phone_number") !!}</a>
             </div>
         </div>
     </div>
