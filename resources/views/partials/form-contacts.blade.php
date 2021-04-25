@@ -1,4 +1,6 @@
-<form class="form js-form-contacts" id="Form" method="post" data-ajax="{{get_rest_url( 0, '/redclick/v1/callback' )}}">
+<form class="form js-form-contacts" id="Form"
+      data-action="{{get_rest_url( 0, '/site/v1/callback' )}}"
+      data-settings='@json(['headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']])'>
     <input type="hidden" value="{!! is_404() ? get_home_url()."/404":get_permalink() !!}" name="pageUrl">
     <div class="form-block">
         <input type="text" class="form-input" name="name" placeholder="{!! wpcl_t('Name') !!}" data-val-type="empty">
