@@ -1,104 +1,132 @@
-const lang = window.location.href.split('/')[3];
+import { encodeObject } from '../util/helpersForm';
+import { parseJsonVars } from '../util/helpers';
 
-function createListItems(list, data) {
+function createSearchlistItems(list, data) {
     while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
 
     if (data.length === 1 && data[0].error) {
         const item = document.createElement('li');
-        item.classList.add('m-empty');
-        item.innerText = data[0].text;
+        item.classList.add('empty');
+        item.innerText = data[0].error;
         list.appendChild(item);
         return;
     }
 
     const container = document.createDocumentFragment();
+
     data.forEach((el) => {
-        const item = document.createElement('li');
+        const text = document.createElement('span');
+        text.innerText = el.title;
+
         const link = document.createElement('a');
+        link.href = el.link;
 
-        link.innerText = el.title;
-        link.href = el.href;
+        if (el.image) {
+            const image = document.createElement('img');
+            image.src = el.image;
+            image.alt = `Изображение товара - ${el.title}`;
+            link.appendChild(image);
+        }
 
+        link.appendChild(text);
+
+        const item = document.createElement('li');
         item.appendChild(link);
+
         container.appendChild(item);
     });
+
     list.appendChild(container);
 }
 
 export default () => {
     document.querySelectorAll('.js-search-form').forEach((form) => {
-        const list = form.querySelector('.js-search-list');
-        const input = form.querySelector('.js-search');
+        const input = form.querySelector('.js-search-input');
         const loupe = form.querySelector('.js-search-loupe');
-        let abort = new AbortController();
+        const list = form.querySelector('.js-search-list');
 
+        const settings = parseJsonVars(form.getAttribute('data-settings'), {
+            list_size: 4,
+        });
+
+        if (!settings.live_search_url) {
+            throw new Error('Live search need live_search_variable');
+        }
+
+        let abort = new AbortController();
         let timeout;
 
         input.addEventListener('input', () => {
-            input.value = input.value.replace(/^\s+/, '');
-
-            if (input.value.length === 0) {
-                clearTimeout(timeout);
-                list.classList.remove('m-show', 'm-search');
-                return;
-            }
+            const { value } = input;
 
             list.innerHTML = '';
-            list.classList.add('m-show', 'm-search');
 
-            clearTimeout(timeout);
-            timeout = setTimeout(() => {
-                abort.abort();
-                abort = new AbortController();
+            if (value.length > 1) {
+                list.classList.add('is-showing', 'is-searching');
+                clearTimeout(timeout);
 
-                fetch(`/${lang}/wp-json/redclick/v1/search`, {
-                    method: 'POST',
-                    signal: abort.signal,
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        keyword: input.value,
-                    }),
-                }).then((r) => r.json())
-                    .then((response) => {
-                        createListItems(list, response);
-                        list.classList.remove('m-search');
+                timeout = setTimeout(() => {
+                    abort.abort();
+                    abort = new AbortController();
+
+                    const data = {
+                        keyword: value,
+                        size: settings.list_size,
+                    };
+
+                    fetch(`${settings.live_search_url}?${encodeObject(data)}`, {
+                        method: 'GET',
+                        signal: abort.signal,
                     })
-                    .catch((reason) => {
-                        if (!(reason instanceof DOMException)) {
-                            console.warn(reason);
-                        }
-                    });
-            }, 300);
+                        .then((r) => r.json())
+                        .then((response) => {
+                            console.log(response);
+                            createSearchlistItems(list, response);
+
+                            list.classList.remove('is-searching');
+                            list.classList.add('is-showing');
+                        })
+                        .catch((error) => {
+                            console.warn(error);
+                        });
+                }, 300);
+            } else {
+                list.classList.remove('is-showing', 'is-searching');
+            }
         });
 
-        form.addEventListener('submit', (e) => {
-            if (form.querySelector('.js-search').value.length === 0) {
-                e.preventDefault();
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.js-search')) {
+                list.classList.remove('is-showing', 'is-searching');
+            }
+        });
+
+        input.addEventListener('focus', () => {
+            if (list.childNodes.length) {
+                list.classList.add('is-showing');
+            } else {
+                input.dispatchEvent(new Event('input'));
             }
         });
 
         form.addEventListener('reset', (e) => {
             e.preventDefault();
 
-            if (!input.value) {
-                loupe.dispatchEvent(new Event('click'));
-            } else {
+            if (input.value.length > 0) {
                 input.value = '';
+                list.innerHTML = '';
+                list.classList.remove('is-showing', 'is-searching');
+            } else {
+                loupe.dispatchEvent(new Event('click'));
             }
         });
 
-        window.addEventListener('toggle.opened', (e) => {
-            if (e.detail.targets.includes(form)) {
-                input.focus();
+        form.addEventListener('submit', (e) => {
+            if (input.value.length === 0) {
+                e.preventDefault();
             }
-        });
-
-        window.addEventListener('toggle.closed', () => {
-            input.blur();
         });
     });
 };

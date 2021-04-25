@@ -35,7 +35,7 @@
 				display: none;
 			}
 
-			&-a-list {
+			&-list {
 				pointer-events: none !important;
 				opacity: 0 !important;
 			}
@@ -78,7 +78,7 @@
 			background-image: url("../images/icons/search/close.svg");
 		}
 
-		&-a-list {
+		&-list {
 			position: absolute;
 			z-index: 100;
 			top: 75%;
@@ -94,12 +94,12 @@
 			border: 1px solid black;
 			border-top: none;
 
-			&.m-show {
+			&.is-showing {
 				pointer-events: auto;
 				opacity: 1;
 			}
 
-			&.m-search {
+			&.is-searching {
 				min-height: 60px;
 				background-image: url(../images/loader_circle.svg);
 				background-position: center;
