@@ -62,6 +62,6 @@ img {
 }
 
 /* When mouse is detected, ALL focused elements have outline removed. */
-body.using-mouse :focus {
+body.is-using-mouse :focus {
 	outline: none;
 }

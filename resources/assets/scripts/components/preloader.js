@@ -1,3 +1,3 @@
 export default () => {
-    setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 500);
+    setTimeout(() => document.getElementById('preloader').classList.add('is-hidden'), 500);
 };

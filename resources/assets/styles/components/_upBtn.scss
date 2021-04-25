@@ -16,7 +16,7 @@
 	cursor: pointer;
 	transition: opacity .33s;
 
-	&.invisible {
+	&.is-invisible {
 		opacity: 0;
 		pointer-events: none;
 	}

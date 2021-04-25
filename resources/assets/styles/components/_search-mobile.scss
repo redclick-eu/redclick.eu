@@ -113,11 +113,11 @@
 				font-size: 14px;
 
 				a,
-				&.m-empty {
+				&.is-empty {
 					width: 100%;
 				}
 
-				&.m-empty {
+				&.is-empty {
 					margin: 0;
 				}
 
@@ -126,7 +126,7 @@
 					text-decoration: none;
 				}
 
-				&:not(.m-empty):hover {
+				&:not(.is-empty):hover {
 					background-color: #e6e6e6;
 				}
 

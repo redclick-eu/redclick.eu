@@ -8,7 +8,7 @@ function createSearchlistItems(list, data) {
 
     if (data.length === 1 && data[0].error) {
         const item = document.createElement('li');
-        item.classList.add('empty');
+        item.classList.add('is-empty');
         item.innerText = data[0].error;
         list.appendChild(item);
         return;

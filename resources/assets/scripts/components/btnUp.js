@@ -3,9 +3,9 @@ export default () => {
 
     document.addEventListener('scroll', () => {
         if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            btn.classList.remove('invisible');
+            btn.classList.remove('is-invisible');
         } else {
-            btn.classList.add('invisible');
+            btn.classList.add('is-invisible');
         }
     });
 

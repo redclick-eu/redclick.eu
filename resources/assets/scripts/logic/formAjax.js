@@ -50,7 +50,7 @@ export default () => {
             }
 
             sending = true;
-            _form.classList.add('loading');
+            _form.classList.add('is-loading');
 
             fetch(_form.getAttribute('data-action'), {
                 method: settings.method,
@@ -68,7 +68,7 @@ export default () => {
                         throw Error(json);
                     }
 
-                    _form.classList.remove('loading');
+                    _form.classList.remove('is-loading');
 
                     if (settings.reset && json.status) {
                         reset(_form);
@@ -77,11 +77,11 @@ export default () => {
                     _form.dispatchEvent(new CustomEvent('form_submitted', { detail: json }));
 
                     if (json.message && backdrop) {
-                        _form.classList.add('message');
+                        _form.classList.add('is-message');
                         backdrop.innerText = json.message;
 
                         setTimeout(() => {
-                            _form.classList.remove('message');
+                            _form.classList.remove('is-message');
                             backdrop.innerText = '';
                         }, 5000);
                     }
@@ -90,15 +90,15 @@ export default () => {
                     window.grecaptcha.reset();
                 })
                 .catch((err) => {
-                    _form.classList.remove('loading');
+                    _form.classList.remove('is-loading');
                     sending = false;
 
                     if (backdrop) {
-                        _form.classList.add('message');
+                        _form.classList.add('is-message');
                         backdrop.innerText = 'Проблема с интернетом или сервером, попробуйте позже';
 
                         setTimeout(() => {
-                            _form.classList.remove('message');
+                            _form.classList.remove('is-message');
                             backdrop.innerText = '';
                         }, 3500);
                     }
