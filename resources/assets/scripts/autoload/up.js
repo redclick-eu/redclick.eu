@@ -9,11 +9,11 @@ function scrollFunction() {
 }
 
 if (_up !== null) {
-    window.addEventListener('scroll', function () {
-        scrollFunction()
+    window.addEventListener('scroll', () => {
+        scrollFunction();
     });
 
-    _up.addEventListener('click', function () {
-        window.scrollTo({top: 0, behavior: 'smooth'});
+    _up.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }

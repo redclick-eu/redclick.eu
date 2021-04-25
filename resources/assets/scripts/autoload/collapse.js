@@ -3,8 +3,8 @@ const _toggle = document.querySelectorAll('[data-toggle]');
 let _showed = [];
 let isOpen = false;
 
-Array.from(_toggle).forEach(function (el) {
-    if(el.classList.contains('is-active')) {
+Array.from(_toggle).forEach((el) => {
+    if (el.classList.contains('is-active')) {
         _showed = Array.from(document.querySelectorAll(el.getAttribute('data-toggle')));
         _showed.push(el);
         isOpen = el;
@@ -27,7 +27,7 @@ Array.from(_toggle).forEach(function (el) {
             const _targets = Array.from(document.querySelectorAll(this.getAttribute('data-toggle')));
             _targets.push(this);
 
-            _targets.forEach(function (el) {
+            _targets.forEach((el) => {
                 el.classList.add('is-active');
                 _showed.push(el);
             });
@@ -37,7 +37,7 @@ Array.from(_toggle).forEach(function (el) {
                 detail: { isOpen, targets: _targets },
             }));
 
-            return
+            return;
         }
 
         window.dispatchEvent(new CustomEvent('toggle.closed'));
@@ -46,12 +46,12 @@ Array.from(_toggle).forEach(function (el) {
     });
 });
 
-['click','touchstart'].map((event) => {
-    document.body.addEventListener(event, function (e) {
+['click', 'touchstart'].map((event) => {
+    document.body.addEventListener(event, (e) => {
         let _current = e.target;
 
-        while (_current !== document.documentElement && !_showed.some(el => el === _current)) {
-            _current = _current.parentElement
+        while (_current !== document.documentElement && !_showed.some((el) => el === _current)) {
+            _current = _current.parentElement;
         }
 
         if (_current === document.documentElement) {

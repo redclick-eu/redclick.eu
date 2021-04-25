@@ -23,6 +23,5 @@ if (_portfolio !== null) {
         });
     });
 
-
     // $portMenu.find(' .menu-item[data-grid='' + classes[0] + '']').click();
 }

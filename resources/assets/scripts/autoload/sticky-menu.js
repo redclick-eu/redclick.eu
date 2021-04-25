@@ -1,20 +1,20 @@
-window.addEventListener('load', function () {
+window.addEventListener('load', () => {
     const nodes = document.querySelectorAll('.js-sticky');
 
-    Array.from(nodes).forEach(function (node) {
-        let nodeOffs = node.offsetTop,
-            fake = document.createElement('div');
+    Array.from(nodes).forEach((node) => {
+        let nodeOffs = node.offsetTop;
+        const fake = document.createElement('div');
 
         fake.style.width = '100%';
-        fake.style.height = node.offsetHeight + 'px';
+        fake.style.height = `${node.offsetHeight}px`;
         fake.style.marginBottom = getComputedStyle(node).marginBottom;
         fake.style.display = 'none';
 
         node.parentNode.insertBefore(fake, node);
 
-        window.addEventListener('scroll', function () {
+        window.addEventListener('scroll', () => {
             const scrollPos = (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0) - 1;
-            
+
             if ((scrollPos > nodeOffs)) {
                 node.classList.add('stuck');
                 document.body.classList.add('stuck');
@@ -29,11 +29,11 @@ window.addEventListener('load', function () {
             }
         });
 
-        window.addEventListener('resize', function () {
+        window.addEventListener('resize', () => {
             if (node.offsetTop !== 0) {
                 nodeOffs = node.offsetTop;
             }
-            fake.style.height = node.offsetHeight + 'px';
+            fake.style.height = `${node.offsetHeight}px`;
         });
     });
 
