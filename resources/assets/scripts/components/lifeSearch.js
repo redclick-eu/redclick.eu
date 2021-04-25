@@ -28,7 +28,7 @@ function createListItems(list, data) {
 }
 
 export default () => {
-    document.getElementsByClassName('js-search-form').forEach((_form) => {
+    document.querySelectorAll('.js-search-form').forEach((_form) => {
         const list = _form.querySelector('.js-search-list');
         const input = _form.querySelector('.js-search');
         const loupe = _form.querySelector('.js-search-loupe');

@@ -1,5 +1,5 @@
 export default () => {
-    document.getElementsByClassName('js-search-form').forEach((form) => {
+    document.querySelectorAll('.js-search-form').forEach((form) => {
         form.addEventListener('submit', (e) => {
             if (form.querySelector('.js-search').value.length === 0) {
                 e.preventDefault();
