@@ -3,7 +3,8 @@ import camelCase from './camelCase';
 /**
  * DOM-based Routing
  *
- * Based on {@link http://goo.gl/EUTi53|Markup-based Unobtrusive Comprehensive DOM-ready Execution} by Paul Irish
+ * Based on {@link http://goo.gl/EUTi53|Markup-based Unobtrusive Comprehensive DOM-ready Execution}
+ * by Paul Irish
  *
  * The routing fires all common scripts, followed by the page specific scripts.
  * Add additional events for more control over timing e.g. a finalize event
@@ -20,7 +21,8 @@ class Router {
     /**
    * Fire Router events
    * @param {string} route DOM-based route derived from body classes (`<body class="...">`)
-   * @param {string} [event] Events on the route. By default, `init` and `finalize` events are called.
+   * @param {string} [event] Events on the route.
+     * By default, `init` and `finalize` events are called.
    * @param {string} [arg] Any custom argument to be passed to the event.
    */
     fire(route, event = 'init', arg) {
