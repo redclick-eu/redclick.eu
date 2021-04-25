@@ -12,7 +12,7 @@ export function validate(el, useClass = true) {
 
     if (useClass) el.classList.remove(cls);
 
-    if (parseInt(type)) {
+    if (parseInt(type, 10)) {
         if (value.length < type) {
             setClass();
             return false;
@@ -62,14 +62,20 @@ export function validate(el, useClass = true) {
 
 export function validateAll(form, useClass) {
     let r = true;
+
     Array.from(form.querySelectorAll('input,textarea,select')).forEach((_v) => {
         r = validate(_v, useClass) && r;
     });
-    if (r) {
-        form.querySelector('[type="submit"]').removeAttribute('disabled');
-    } else {
-        form.querySelector('[type="submit"]').setAttribute('disabled', 'disabled');
+
+    const submitBtn = form.querySelector('[type="submit"]');
+    if (submitBtn) {
+        if (r) {
+            submitBtn.removeAttribute('disabled');
+        } else {
+            submitBtn.setAttribute('disabled', 'disabled');
+        }
     }
+
     return r;
 }
 
@@ -84,27 +90,32 @@ export function serialize(form) {
     const elements = Array.from(form.querySelectorAll('input,textarea,select'));
 
     elements.forEach((field) => {
-        // Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
-        if (!field.name || field.disabled || field.type === 'file' || field.type === 'reset' || field.type === 'submit' || field.type === 'button') return true;
+        // Don't serialize fields without a name, submits, buttons,
+        // file and reset inputs, and disabled fields
+        if (!field.name || field.disabled || field.type === 'file' || field.type === 'reset'
+            || field.type === 'submit' || field.type === 'button') return true;
 
         // If a multi-select, get all selections
         if (field.type === 'select-multiple') {
-            for (let n = 0; n < field.options.length; n++) {
-                if (!field.options[n].selected) continue;
-                serialized[field.name] = field.options[n].value;
+            for (let n = 0; n < field.options.length; n += 1) {
+                if (field.options[n].selected) {
+                    serialized[field.name] = field.options[n].value;
+                }
             }
-        }
-
-        // Convert field data to a query string
-        else if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
+        } else if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
+            // Convert field data to a query string
             serialized[field.name] = field.value;
         }
+
+        return true;
     });
 
-    return JSON.stringify(serialized);
+    return serialized;
 }
 
 export function reset(_form) {
     _form.reset();
     _form.querySelector('[type="submit"]').setAttribute('disabled', 'disabled');
 }
+
+export const encodeObject = (obj) => Object.entries(obj).map(([key, val]) => `${key}=${encodeURIComponent(val)}`).join('&');
