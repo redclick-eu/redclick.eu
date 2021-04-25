@@ -1,6 +1,3 @@
-import 'whatwg-fetch'
-import 'abortcontroller-polyfill/dist/polyfill-patch-fetch'
-
 const lang = location.href.split('/')[3];
 
 Array.from(document.getElementsByClassName('js-search-form')).forEach((_form) => {

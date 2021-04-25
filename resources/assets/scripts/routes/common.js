@@ -1,5 +1,4 @@
 import {validate, validateAll, serialize, reset} from '../util/form'
-import 'whatwg-fetch'
 
 export default {
     init() {
