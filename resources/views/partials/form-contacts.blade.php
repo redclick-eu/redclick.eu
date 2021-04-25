@@ -1,4 +1,4 @@
-<form class="form js-form-contacts" id="Form"
+<form class="form js-form-contacts js-form-validate" id="Form"
       data-action="{{get_rest_url( 0, '/site/v1/callback' )}}"
       data-settings='@json(['headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']])'>
     <input type="hidden" value="{!! is_404() ? get_home_url()."/404":get_permalink() !!}" name="pageUrl">

@@ -7,6 +7,7 @@ import siema from '../components/siema';
 import stickyMenu from '../components/stickyMenu';
 
 import formAjax from '../logic/formAjax';
+import formValidate from '../logic/formValidate';
 import mouseOrKeyboard from '../logic/mouseOrKeyboard';
 import toggle from '../logic/toggle';
 
@@ -21,6 +22,7 @@ export default {
         stickyMenu();
 
         formAjax();
+        formValidate();
         mouseOrKeyboard();
         toggle();
     },

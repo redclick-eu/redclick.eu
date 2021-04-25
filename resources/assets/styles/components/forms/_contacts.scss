@@ -96,6 +96,12 @@
 		&:active {
 			background-color: darken($red, 20%);
 		}
+
+		&:disabled {
+			background-color: $blue !important;
+			border: unset !important;
+			cursor: not-allowed;
+		}
 	}
 
 	&-backdrop {
