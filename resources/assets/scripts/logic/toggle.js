@@ -1,69 +1,72 @@
-import {parse_json_vars, match_some} from '../util/helpers'
+import { parseJsonVars, matchSome } from '../util/helpers';
 
-export default (data_selector = 'toggle') => {
-    const _toggle = document.querySelectorAll(`[data-${data_selector}]`);
+export default (dataSelector = 'toggle') => {
+    const toggle = document.querySelectorAll(`[data-${dataSelector}]`);
 
-    let _showed = [];
-    let _activator = null;
+    let showed = [];
+    let activator = null;
 
-    const isSmoothEl = (el ,settings) => settings.types.includes('smooth') && match_some(el, settings.smooth_elements);
+    const isSmoothEl = (el, settings) => settings.types.includes('smooth') && matchSome(el, settings.smooth_elements);
 
-    const doSmoothEl = (el, isOpening) => el.style.maxHeight = (isOpening ? `${el.scrollHeight}px` : '0px');
+    /* eslint-disable no-param-reassign */
+    const doSmoothEl = (el, isOpening) => {
+        el.style.maxHeight = (isOpening ? `${el.scrollHeight}px` : '0px');
+    };
+    /* eslint-enable */
 
     const getTargets = (el) => {
-        const targets_str = el.getAttribute('data-toggle');
+        const targetsStr = el.getAttribute('data-toggle');
 
-        if(typeof targets_str === 'string' && targets_str.length > 0) {
-             return [...Array.from(document.querySelectorAll(targets_str)), el];
+        if (typeof targetsStr === 'string' && targetsStr.length > 0) {
+            return [...Array.from(document.querySelectorAll(targetsStr)), el];
         }
 
         return [el];
-    }
+    };
 
-    _toggle.forEach((el) => {
-
+    toggle.forEach((el) => {
         /*
             clear - just remove all active classes
             unique - just toggle active class
             smooth - smooth animation
          */
 
-        const settings = parse_json_vars(el.getAttribute('data-toggle-settings'), {
+        const settings = parseJsonVars(el.getAttribute('data-toggle-settings'), {
             types: [],
             smooth_elements: [],
         });
 
         if (el.classList.contains('is-active')) {
             if (!settings.types.includes('unique')) {
-                _showed = getTargets(el);
-                _activator = el;
+                showed = getTargets(el);
+                activator = el;
             }
 
             if (settings.types.includes('smooth')) {
                 setTimeout(() => {
-                    getTargets(el).forEach((el) => {
-                        if (match_some(el, settings.smooth_elements)) {
-                            doSmoothEl(el, true)
+                    getTargets(el).forEach((target) => {
+                        if (matchSome(target, settings.smooth_elements)) {
+                            doSmoothEl(target, true);
                         }
-                    })
-                })
+                    });
+                });
             }
         }
 
-        el.addEventListener('click', function (event) {
+        el.addEventListener('click', (event) => {
             event.preventDefault();
 
-            const _targets = getTargets(this);
+            const targets = getTargets(el);
             window.dispatchEvent(new CustomEvent('toggle.start', {
-                detail: {isOpen: !!_activator},
+                detail: { isOpen: !!activator },
             }));
 
             if (settings.types.includes('unique')) {
-                _targets.forEach(function (el) {
-                    el.classList.toggle('is-active');
+                targets.forEach((target) => {
+                    target.classList.toggle('is-active');
 
-                    if (isSmoothEl(el, settings)) {
-                        doSmoothEl(el, el.classList.contains('is-active'))
+                    if (isSmoothEl(target, settings)) {
+                        doSmoothEl(target, target.classList.contains('is-active'));
                     }
                 });
 
@@ -73,16 +76,16 @@ export default (data_selector = 'toggle') => {
             }
 
             if (settings.types.includes('clear')) {
-                const closingElements = [..._showed, ...Array.from(document.querySelectorAll('.is-active'))];
-                _showed = [];
+                const closingElements = [...showed, ...Array.from(document.querySelectorAll('.is-active'))];
+                showed = [];
 
                 while (closingElements.length > 0) {
-                    const el = closingElements.pop();
+                    const closingEl = closingElements.pop();
 
-                    el.classList.remove('is-active');
+                    closingEl.classList.remove('is-active');
 
-                    if (isSmoothEl(el, settings)) {
-                        doSmoothEl(el, false)
+                    if (isSmoothEl(closingEl, settings)) {
+                        doSmoothEl(closingEl, false);
                     }
                 }
 
@@ -91,26 +94,28 @@ export default (data_selector = 'toggle') => {
                 return;
             }
 
-            while (_showed.length > 0) {
-                _showed.pop().classList.remove('is-active');
+            while (showed.length > 0) {
+                showed.pop().classList.remove('is-active');
             }
 
             window.dispatchEvent(new CustomEvent('toggle.clean'));
 
-            if (_activator !== this) {
-                _targets.forEach(function (el) {
-                    el.classList.add('is-active');
-                    _showed.push(el);
+            if (activator !== this) {
+                targets.forEach((target) => {
+                    target.classList.add('is-active');
+                    showed.push(target);
 
                     if (settings.types.includes('smooth')) {
-                        el.style.maxHeight = `${el.scrollHeight}px`
+                        /* eslint-disable no-param-reassign */
+                        target.style.maxHeight = `${target.scrollHeight}px`;
+                        /* eslint-enable */
                     }
                 });
 
-                _activator = this;
+                activator = this;
 
                 window.dispatchEvent(new CustomEvent('toggle.opened', {
-                    detail: {isOpen: !!_activator, targets: _targets},
+                    detail: { isOpen: !!activator, targets },
                 }));
 
                 return;
@@ -118,31 +123,29 @@ export default (data_selector = 'toggle') => {
 
             window.dispatchEvent(new CustomEvent('toggle.closed'));
 
-            _activator = null;
+            activator = null;
         });
     });
 
-    ['click', 'touchstart'].map(function (event) {
-        document.body.addEventListener(event, function (e) {
-            let _current = e.target;
+    ['click', 'touchstart'].forEach((event) => {
+        document.body.addEventListener(event, (e) => {
+            let current = e.target;
 
-            while (_current !== document.documentElement && !_showed.some(function (el) {
-                return el === _current;
-            })) { // jshint ignore:line
-                if (_current === null) {
-                    return
+            while (current !== document.documentElement && !showed.includes(current)) {
+                if (current === null) {
+                    return;
                 }
-                _current = _current.parentElement;
+                current = current.parentElement;
             }
 
-            if (_current === document.documentElement) {
-                while (_showed.length > 0) {
-                    _showed.pop().classList.remove('is-active');
+            if (current === document.documentElement) {
+                while (showed.length > 0) {
+                    showed.pop().classList.remove('is-active');
                 }
-                _activator = null;
+                activator = null;
 
                 window.dispatchEvent(new CustomEvent('toggle.closed'));
             }
         });
     });
-}
+};

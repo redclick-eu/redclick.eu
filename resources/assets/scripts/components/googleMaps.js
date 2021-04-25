@@ -8,7 +8,8 @@ export default () => {
         scriptRecaptcha.src = `https://maps.googleapis.com/maps/api/js?key=${key}&callback=initMap`;
         document.head.appendChild(scriptRecaptcha);
 
-        window.initMap = function () {
+        window.initMap = () => {
+            /* eslint-disable no-new */
             new window.google.maps.Marker({
                 position: coordinates,
                 map: new window.google.maps.Map(googleMap, {
@@ -16,6 +17,7 @@ export default () => {
                     center: coordinates,
                 }),
             });
+            /* eslint-enable */
         };
     }
-}
+};
