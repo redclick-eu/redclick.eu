@@ -1,4 +1,4 @@
-import {validateAll, serialize, reset} from '../util/helperssForm'
+import {validateAll, serialize, reset} from '../util/helpersForm'
 import {parse_json_vars} from '../util/helpers'
 
 export default () => {
