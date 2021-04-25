@@ -37,9 +37,9 @@ export default () => {
         let timeout;
 
         input.addEventListener('input', () => {
-            this.value = this.value.replace(/^\s+/, '');
+            input.value = input.value.replace(/^\s+/, '');
 
-            if (this.value.length === 0) {
+            if (input.value.length === 0) {
                 clearTimeout(timeout);
                 list.classList.remove('m-show', 'm-search');
                 return;
@@ -60,11 +60,10 @@ export default () => {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        keyword: this.value,
+                        keyword: input.value,
                     }),
                 }).then((r) => r.json())
                     .then((response) => {
-                        console.log(response);
                         createListItems(list, response);
                         list.classList.remove('m-search');
                     })
