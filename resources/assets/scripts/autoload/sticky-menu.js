@@ -1,7 +1,7 @@
-window.addEventListener('load', () => {
-    const nodes = document.querySelectorAll('.js-sticky');
+export default (selector = '.js-sticky') => {
+    const nodes = document.querySelectorAll(selector);
 
-    Array.from(nodes).forEach((node) => {
+    nodes.forEach((node) => {
         let nodeOffs = node.offsetTop;
         const fake = document.createElement('div');
 
@@ -13,7 +13,8 @@ window.addEventListener('load', () => {
         node.parentNode.insertBefore(fake, node);
 
         window.addEventListener('scroll', () => {
-            const scrollPos = (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0) - 1;
+            const scrollPos = (window.pageYOffset || document.documentElement.scrollTop
+                || document.body.scrollTop || 0) - 1;
 
             if ((scrollPos > nodeOffs)) {
                 node.classList.add('stuck');
@@ -30,12 +31,10 @@ window.addEventListener('load', () => {
         });
 
         window.addEventListener('resize', () => {
-            if (node.offsetTop !== 0) {
-                nodeOffs = node.offsetTop;
-            }
+            nodeOffs = node.offsetTop;
             fake.style.height = `${node.offsetHeight}px`;
         });
     });
 
     window.dispatchEvent(new Event('scroll'));
-});
+};
