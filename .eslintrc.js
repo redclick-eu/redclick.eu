@@ -1,6 +1,6 @@
 module.exports = {
   'root': true,
-  'extends': 'eslint:recommended',
+  'extends': 'airbnb',
   'globals': {
     'wp': true,
   },
@@ -34,6 +34,7 @@ module.exports = {
   'rules': {
     'no-console': 0,
     'quotes': ['error', 'single'],
+      "indent": ["error", 4],
     'comma-dangle': [
       'error',
       {
