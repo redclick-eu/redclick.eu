@@ -1,2 +1,1 @@
-<?php
-        var_dump(get_fields());
+@php(var_dump(get_fields()))

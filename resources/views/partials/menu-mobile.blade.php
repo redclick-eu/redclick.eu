@@ -8,7 +8,7 @@
         </button>
     </div>
 
-    <a id="menu-mobile-logo" class="menu-logo <?= get_search_query() ? 'is-active' : '' ?>" href="<?= get_home_url() ?>"></a>
+    <a id="menu-mobile-logo" class="menu-logo {!! get_search_query() ? 'is-active' : '' !!}" href="{!! get_home_url() !!}"></a>
 
     @include("partials.search-mobile")
 
