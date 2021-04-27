@@ -1,0 +1,32 @@
+.input {
+	$self: &;
+
+	&_text {
+		width: 100%;
+
+		#{$self} {
+			&-input {
+				width: 100%;
+				padding: 10px 15px;
+				border-radius: 4px;
+				border: 1px solid #c9c9c9;
+				font-size: 16px;
+
+				&.is-error {
+					border-color: $red;
+				}
+			}
+		}
+
+		&#{$self} {
+			&_textarea {
+				min-height: 130px;
+				height: 100%;
+
+				#{$self}-input {
+					height: 100%;
+				}
+			}
+		}
+	}
+}
