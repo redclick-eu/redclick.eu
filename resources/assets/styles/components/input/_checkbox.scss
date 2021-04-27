@@ -1,0 +1,38 @@
+.input {
+	$self: &;
+
+	&_checkbox {
+		display: flex;
+		align-items: center;
+		margin: auto 0;
+		color: #8d99ae;
+		font-family: "IBM Plex Sans", sans-serif;
+		font-size: 16px;
+
+		#{$self} {
+			&-input {
+				display: none;
+
+				&:checked ~ #{$self}-helper {
+					background-image: url("../images/contacts/checkbox.svg");
+				}
+			}
+
+			&-text {
+				font-style: normal;
+				font-weight: 300;
+				font-size: 12px;
+			}
+
+			&-helper {
+				width: 20px;
+				height: 20px;
+				margin-right: 10px;
+				background-image: url("../images/contacts/checkbox.svg");
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+}

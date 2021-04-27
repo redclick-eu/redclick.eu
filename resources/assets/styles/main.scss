@@ -19,6 +19,8 @@
 
 @import "components/input";
 @import "components/input/text";
+@import "components/input/checkbox";
+
 @import "components/languageSwitch";
 @import "components/title";
 @import "components/privacyPolicy";
@@ -34,7 +36,7 @@
 @import "components/menus/aside";
 @import "components/menus/footer";
 
-@import "components/forms/contacts";
+@import "components/form/contacts";
 
 @import "layouts/header";
 @import "layouts/footer";
