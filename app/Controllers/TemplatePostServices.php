@@ -14,7 +14,7 @@ class TemplatePostServices extends Controller
             'content' => get_the_content(),
             'cost' => $fields['service_cost'],
             'deadline' => $fields['service_time'],
-            'carousel' =>  $this->carousel($fields['project_photos']),
+            'carousel' =>  isset($fields['project_photos']) ? $this->carousel($fields['project_photos']) : [],
         ];
 	}
 
