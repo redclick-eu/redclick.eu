@@ -6,19 +6,9 @@ a:hover {
 	text-decoration: none;
 }
 
-button,
-button:active,
-button:focus,
-button:hover,
-input,
-input:active,
-input:focus,
-input:hover,
-textarea,
-textarea:active,
-textarea:focus,
-textarea:hover {
-	box-shadow: none;
+button {
+	background: none;
+	border: none;
 }
 
 ul {
