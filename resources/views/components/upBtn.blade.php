@@ -1,1 +1,1 @@
-<button class="upBtn btn-scroll-top invisible"></button>
+<button class="upBtn js-upBtn is-invisible"></button>

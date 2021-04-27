@@ -1,5 +1,5 @@
 export default () => {
-    const btn = document.querySelector('.btn-scroll-top');
+    const btn = document.querySelector('.js-upBtn');
 
     document.addEventListener('scroll', () => {
         if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
