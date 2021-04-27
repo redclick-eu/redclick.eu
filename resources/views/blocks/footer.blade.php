@@ -3,7 +3,7 @@
     <div class="footer-container">
         <div class="footer-row">
             <div class="footer-copyright"><span>© {!! A::get_field("company_name") !!}, {!! date("Y") !!}.</span>
-                @php(wp_nav_menu(["theme_location" => "footer_navigation", 'container_class' => 'menu_footer']))
+                @include("blocks.menu.footer")
             </div>
             <div class="footer-links">
                 <a href="tel:{!! App\create_link_phone(A::get_field("phone_number")) !!}" class="footer-link footer-link_phone">{!! A::get_field("phone_number") !!}</a>
@@ -13,5 +13,3 @@
         </div>
     </div>
 </footer>
-
-<button id="up" class="btn-scroll-top invisible"></button>

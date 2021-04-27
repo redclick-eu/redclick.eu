@@ -1,0 +1,47 @@
+.form {
+	$self: &;
+
+	&_contacts {
+		@extend %row;
+
+		position: relative;
+		margin: 0;
+
+		#{$self} {
+			&-block {
+				@extend %col-12;
+				@extend %col-xl-4;
+
+				margin-bottom: 20px;
+
+				&_full {
+					@extend %col-12;
+					@extend %col-xl-12;
+				}
+
+				&_nm {
+					margin-bottom: 0;
+				}
+
+				&_mm {
+					margin-bottom: 10px;
+				}
+
+				&_inline {
+					display: flex;
+					flex-direction: row;
+				}
+			}
+
+			&-submit {
+				@extend %button;
+			}
+
+			@include media-breakpoint-up(lg) {
+				&-submit {
+					max-width: 225px;
+				}
+			}
+		}
+	}
+}

@@ -6,7 +6,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('partials.post-portfolio')
-    @include('partials.contacts')
+    @include('blocks.post.portfolio')
+    @include('blocks.callback')
 @endsection
 

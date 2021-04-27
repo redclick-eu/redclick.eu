@@ -10,7 +10,7 @@
 
     <a id="menu-mobile-logo" class="menu-logo {!! get_search_query() ? 'is-active' : '' !!}" href="{!! get_home_url() !!}"></a>
 
-    @include("partials.search-mobile")
+    @include("blocks.form.mobileSearch")
 
     <a class="menu-phone" href="tel:{!! App\create_link_phone(A::get_field("phone_number")) !!}"></a>
 

@@ -6,7 +6,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('partials.post-services')
-    @include('partials.contacts')
+    @include('blocks.post.services')
+    @include('blocks.callback')
 @endsection
 

@@ -17,9 +17,35 @@
 @import "common/mixins";
 @import "common/templates";
 
+@import "blocks/form";
+@import "blocks/form/contacts";
+@import "blocks/form/mobileSearch";
+
+@import "blocks/menu/aside";
+@import "blocks/menu/footer";
+@import "blocks/menu/main";
+@import "blocks/menu/mobile";
+
+@import "blocks/page";
+@import "blocks/page/search";
+@import "blocks/page/text";
+
+@import "blocks/post";
+@import "blocks/post/services";
+@import "blocks/post/portfolio";
+
+@import "blocks/callback";
+@import "blocks/carousel";
+@import "blocks/contacts";
+@import "blocks/footer";
+@import "blocks/header";
+@import "blocks/portfolio";
+@import "blocks/reviews";
+@import "blocks/services";
+
 @import "components/input";
-@import "components/input/text";
 @import "components/input/checkbox";
+@import "components/input/text";
 
 @import "components/languageSwitch";
 @import "components/title";
@@ -28,29 +54,4 @@
 @import "components/info";
 @import "components/review";
 @import "components/preloader";
-@import "components/search-mobile";
 @import "components/upBtn";
-
-@import "components/menus/main";
-@import "components/menus/mobile";
-@import "components/menus/aside";
-@import "components/menus/footer";
-
-@import "components/form/contacts";
-
-@import "layouts/header";
-@import "layouts/footer";
-
-@import "layouts/blocks/services";
-@import "layouts/blocks/portfolio";
-@import "layouts/blocks/reviews";
-@import "layouts/blocks/contacts";
-@import "layouts/blocks/bcontacts";
-@import "layouts/blocks/carousel";
-
-@import "layouts/posts";
-@import "layouts/posts/services";
-@import "layouts/posts/portfolio";
-
-@import "layouts/pages/contacts";
-@import "layouts/pages/text";

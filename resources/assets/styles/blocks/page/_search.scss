@@ -1,0 +1,20 @@
+.page {
+	$self: &;
+
+	&_search {
+		@extend %container;
+
+		#{$self} {
+			&-row {
+				@extend %row;
+			}
+
+			&-item {
+				@extend %col-12;
+
+				font-size: 20px;
+				margin-bottom: 10px;
+			}
+		}
+	}
+}

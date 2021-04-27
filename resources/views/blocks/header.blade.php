@@ -8,10 +8,10 @@
                 </a>
             </div>
             <div class="header-languageSwitch">
-                @include("partials.languageSwitch")
+                @include("components.languageSwitch")
             </div>
             <div class="header-menu">
-                @include("partials.menu-main")
+                @include("blocks.menu.main")
             </div>
             <div class="header-phone">
                 <a href="tel:{!! App\create_link_phone(A::get_field("phone_number")) !!}">{!! A::get_field("phone_number") !!}</a>

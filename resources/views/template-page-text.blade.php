@@ -6,7 +6,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include("partials.title", ["text" => get_the_title()])
-    @include('partials.text')
-    @include('partials.contacts')
+    @include("components.title", ["text" => get_the_title()])
+    @include('blocks.page.text')
+    @include('blocks.callback')
 @endsection

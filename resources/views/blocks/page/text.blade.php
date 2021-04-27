@@ -1,6 +1,6 @@
-<div class="text">
-    <div class="text-row">
-        <div class="text-content">
+<div class="page page_text">
+    <div class="page-row">
+        <div class="page-content">
             @php(the_post())
             @php(the_content())
         </div>

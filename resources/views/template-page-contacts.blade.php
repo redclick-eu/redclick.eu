@@ -6,6 +6,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include("partials.title", ["text" => wpcl_t("Contacts")])
-    @include('partials.contacts-info')
+    @include("components.title", ["text" => wpcl_t("Contacts")])
+    @include('blocks.contacts')
+    @include('blocks.callback')
 @endsection

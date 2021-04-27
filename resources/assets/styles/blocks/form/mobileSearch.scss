@@ -1,0 +1,155 @@
+.form {
+	$self: &;
+
+	&_mobileSearch {
+		$search_input_height: 22px;
+
+		@extend %col;
+
+		position: relative;
+		display: flex;
+		max-width: 0;
+		padding: 0 $search_input_height 0 0;
+		margin: 0 15px 0 5px;
+		justify-content: flex-end;
+		align-items: center;
+		transition: .33s ease-out;
+
+		&.is-active {
+			max-width: 100%;
+			padding-right: 0;
+
+			.form {
+				&-input {
+					padding: 10px 40px 10px 10px;
+					border: 1px solid black;
+				}
+
+				&-loupe {
+					display: none;
+				}
+			}
+		}
+
+		&:not(.is-active) {
+			.form {
+				&-reset {
+					display: none;
+				}
+
+				&-list {
+					pointer-events: none !important;
+					opacity: 0 !important;
+				}
+			}
+		}
+
+		#{$self} {
+			&-input {
+				width: 100%;
+				height: $search_input_height + 4;
+				padding: 0;
+				border: 0;
+				background-color: white;
+				transition: .33s ease-out;
+			}
+
+			&-loupe,
+			&-reset {
+				position: absolute;
+				top: 0;
+				right: 2px;
+				bottom: 0;
+				width: $search_input_height;
+				height: $search_input_height;
+				margin: auto;
+				padding: 0;
+				cursor: pointer;
+				background-size: contain;
+				background-position: center;
+				background-color: unset;
+				background-repeat: no-repeat;
+				border: none;
+			}
+
+			&-loupe {
+				background-image: url("../images/icons/search/loupe.svg");
+			}
+
+			&-reset {
+				background-image: url("../images/icons/search/close.svg");
+			}
+
+			&-list {
+				position: absolute;
+				z-index: 100;
+				top: 75%;
+				left: 50%;
+				width: 100%;
+				margin: auto;
+				padding: 0;
+				pointer-events: none;
+				background-color: white;
+				opacity: 0;
+				transform: translateX(-50%);
+				transition: opacity .1s;
+				border: 1px solid black;
+				border-top: none;
+
+				&.is-showing {
+					pointer-events: auto;
+					opacity: 1;
+				}
+
+				&.is-searching {
+					min-height: 60px;
+					background-image: url(../images/loader_circle.svg);
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: 40px;
+				}
+
+				li {
+					display: flex;
+					padding: 5px;
+					font-size: 14px;
+
+					a,
+					&.is-empty {
+						width: 100%;
+					}
+
+					&.is-empty {
+						margin: 0;
+					}
+
+					a:hover {
+						color: black;
+						text-decoration: none;
+					}
+
+					&:not(.is-empty):hover {
+						background-color: #e6e6e6;
+					}
+
+					&:not(:last-child) {
+						border-bottom: 1px solid black;
+					}
+
+					a {
+						display: flex;
+						align-items: center;
+					}
+
+					img {
+						max-height: 80px;
+					}
+
+					span {
+						margin-left: 15px;
+					}
+				}
+			}
+		}
+	}
+}

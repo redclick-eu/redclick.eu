@@ -2,13 +2,14 @@
 
 @section('content')
     <main class="main">
-        @include("partials.title", ["text" => wpcl_t("Services"), "size" => 2])
-        @include("partials.services")
-        @include("partials.title", ["text" => wpcl_t("Portfolio"), "size" => 2])
-        @include("partials.portfolio")
-        @include("partials.title", ["text" => wpcl_t("Reviews"), "size" => 2])
-        @include("partials.reviews")
-        @include("partials.title", ["text" => wpcl_t("Contacts"), "size" => 2])
-        @include("partials.contacts-info")
+        @include("components.title", ["text" => wpcl_t("Services"), "size" => 2])
+        @include("blocks.services")
+        @include("components.title", ["text" => wpcl_t("Portfolio"), "size" => 2])
+        @include("blocks.portfolio")
+        @include("components.title", ["text" => wpcl_t("Reviews"), "size" => 2])
+        @include("blocks.reviews")
+        @include("components.title", ["text" => wpcl_t("Contacts"), "size" => 2])
+        @include("blocks.contacts")
+        @include("blocks.callback")
     </main>
 @endsection

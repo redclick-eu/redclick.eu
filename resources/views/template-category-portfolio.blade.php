@@ -2,6 +2,6 @@
   Category Template: Services
 --}}
 
-@include("partials.title", ["text" => wpcl_t("Portfolio")])
-@include("partials.portfolio")
-@include('partials.contacts')
+@include("components.title", ["text" => wpcl_t("Portfolio")])
+@include("blocks.portfolio")
+@include('blocks.callback')

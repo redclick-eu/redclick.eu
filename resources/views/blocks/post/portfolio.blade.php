@@ -1,4 +1,4 @@
-@include("partials.title", ["text" => $post_vars['title']])
+@include("components.title", ["text" => $post_vars['title']])
 
 <div class="post post_portfolio">
     <div class="post-container">
@@ -6,7 +6,7 @@
             <div class="post-site"><a href="{!! $post_vars['site_url'] !!}">{!! $post_vars['site'] !!}</a></div>
             <div class="post-services"><span>{!! $post_vars['services'] !!}</span></div>
             @if(!empty($post_vars['carousel']))
-                @include('partials.carousel', ['images' => $post_vars['carousel']])
+                @include('blocks.carousel', ['images' => $post_vars['carousel']])
             @endif
             <div class="post-text post-text_task">
                 <h6>{!! wpcl_t("Task") !!}</h6>
@@ -24,4 +24,4 @@
     </div>
 </div>
 
-@include("partials.review")
+@include("components.review")
