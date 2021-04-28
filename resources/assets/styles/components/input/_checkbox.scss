@@ -14,7 +14,7 @@
 				display: none;
 
 				&:checked ~ #{$self}-helper {
-					background-image: url("../images/contacts/checkbox.svg");
+					background-image: url("../images/input/checkbox.svg");
 				}
 			}
 
@@ -28,7 +28,7 @@
 				width: 20px;
 				height: 20px;
 				margin-right: 10px;
-				background-image: url("../images/contacts/checkbox.svg");
+				background-image: url("../images/input/checkbox.svg");
 				background-size: contain;
 				background-position: center;
 				background-repeat: no-repeat;

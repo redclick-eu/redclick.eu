@@ -24,7 +24,7 @@
 
 				a {
 					padding-left: 20px;
-					background-image: url(../images/icons/globe.svg);
+					background-image: url("../images/portfolio/globe.svg");
 					background-size: 16px;
 					background-repeat: no-repeat;
 					background-position: 0 center;
@@ -42,7 +42,7 @@
 				span {
 					margin-bottom: 30px;
 					padding-left: 25px;
-					background-image: url(../images/icons/check_red.svg);
+					background-image: url("../images/portfolio/check_red.svg");
 					background-size: 16px;
 					background-repeat: no-repeat;
 					background-position: 0 center;
@@ -69,15 +69,15 @@
 				}
 
 				&_task h6 {
-					background-image: url("../images/icons/question.svg");
+					background-image: url("../images/portfolio/question.svg");
 				}
 
 				&_solution h6 {
-					background-image: url("../images/icons/lightbulb.svg");
+					background-image: url("../images/portfolio/lightbulb.svg");
 				}
 
 				&_result h6 {
-					background-image: url("../images/icons/check.svg");
+					background-image: url("../images/portfolio/check.svg");
 				}
 			}
 		}

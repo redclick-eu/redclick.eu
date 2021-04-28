@@ -59,7 +59,7 @@
 		}
 
 		&_phone {
-			@include icon_before("../images/icons/phone_small.svg");
+			@include icon_before("../images/footer/phone_small.svg");
 
 			padding-left: 20px;
 
@@ -69,7 +69,7 @@
 		}
 
 		&_mail {
-			@include icon_before("../images/icons/envelope.svg", "left center");
+			@include icon_before("../images/footer/envelope.svg", "left center");
 
 			padding-left: 20px;
 
@@ -84,7 +84,7 @@
 			background-size: 15px;
 			background-repeat: no-repeat;
 			background-position: bottom center;
-			background-image: url("../images/icons/fb.svg");
+			background-image: url("../images/footer/fb.svg");
 		}
 	}
 }

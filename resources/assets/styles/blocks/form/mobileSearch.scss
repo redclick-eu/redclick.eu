@@ -73,11 +73,11 @@
 			}
 
 			&-loupe {
-				background-image: url("../images/icons/search/loupe.svg");
+				background-image: url("../images/form/loupe.svg");
 			}
 
 			&-reset {
-				background-image: url("../images/icons/search/close.svg");
+				background-image: url("../images/form/close.svg");
 			}
 
 			&-list {
@@ -103,7 +103,7 @@
 
 				&.is-searching {
 					min-height: 60px;
-					background-image: url(../images/loader_circle.svg);
+					background-image: url(../images/form/loader_circle.svg);
 					background-position: center;
 					background-repeat: no-repeat;
 					background-size: 40px;

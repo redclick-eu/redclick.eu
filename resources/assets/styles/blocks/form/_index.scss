@@ -31,7 +31,7 @@
 		form.loading & {
 			opacity: 1;
 			pointer-events: all;
-			background-image: url("../images/loader.svg");
+			background-image: url("../images/form/loader_circle.svg");
 		}
 
 		form.message & {
