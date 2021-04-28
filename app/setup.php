@@ -15,12 +15,8 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
     wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), false, null, true);
 
-
-    if(! is_admin()) {
-        wp_dequeue_style( 'wp-block-library' );
-    }
-
     if (!is_admin()) {
+        wp_dequeue_style( 'wp-block-library' );
         wp_deregister_script('wp-embed');
         remove_action('wp_head', 'print_emoji_detection_script', 7);
         remove_action('wp_print_styles', 'print_emoji_styles');
@@ -73,65 +69,43 @@ add_action('after_setup_theme', function () {
      * @see resources/assets/styles/layouts/_tinymce.scss
      */
     add_editor_style(asset_path('styles/main.css'));
-
-    add_filter('wp_nav_menu_args', function ($args) {
-        $args['container'] = 'nav';
-        $args['menu_class'] = 'menu-list';
-        return $args;
-    });
-
-
-    add_filter('nav_menu_css_class', function ($classes, $item) {
-        $c[] = 'menu-item';
-
-        if (in_array('current-menu-item', $classes) || in_array('current_page_item', $classes)
-            || ($item->object === 'category' && in_category($item->object_id, get_the_ID()))) {
-            $c[] = 'menu-item_current';
-        }
-
-        if (in_array('menu-item-has-children', $classes)) {
-            $c[] = 'menu-item_sub';
-        }
-
-        return $c;
-    }, 10, 4);
-
-
-    add_filter( 'nav_menu_submenu_css_class', function () {
-        return array('menu-menu_sub');
-    }, 10, 3);
-
-    add_filter( 'nav_menu_link_attributes', function ($atts) {
-        $atts['class'] =  'menu-link';
-        return $atts;
-    }, 10, 3 );
-
-
-    add_filter( 'nav_menu_item_title',  __NAMESPACE__ . '\\nav_menu_item_title', 10, 4 );
-    function nav_menu_item_title( $title) {
-        return "<span>$title</span> ";
-    }
 }, 20);
 
-/**
- * Register sidebars
- */
-add_action('widgets_init', function () {
-    $config = [
-        'before_widget' => '<section class="widget %1$s %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h3>',
-        'after_title'   => '</h3>'
-    ];
-    register_sidebar([
-        'name'          => __('Primary', 'sage'),
-        'id'            => 'sidebar-primary'
-    ] + $config);
-    register_sidebar([
-        'name'          => __('Footer', 'sage'),
-        'id'            => 'sidebar-footer'
-    ] + $config);
+add_filter('wp_nav_menu_args', function ($args) {
+    $args['container'] = 'nav';
+    $args['menu_class'] = 'menu-list';
+    return $args;
 });
+
+
+add_filter('nav_menu_css_class', function ($classes, $item) {
+    $c[] = 'menu-item';
+
+    if (in_array('current-menu-item', $classes) || in_array('current_page_item', $classes)
+        || ($item->object === 'category' && in_category($item->object_id, get_the_ID()))) {
+        $c[] = 'menu-item_current';
+    }
+
+    if (in_array('menu-item-has-children', $classes)) {
+        $c[] = 'menu-item_sub';
+    }
+
+    return $c;
+}, 10, 4);
+
+add_filter( 'nav_menu_submenu_css_class', function () {
+    return array('menu-menu_sub');
+}, 10, 3);
+
+add_filter( 'nav_menu_link_attributes', function ($atts) {
+    $atts['class'] =  'menu-link';
+    return $atts;
+}, 10, 3 );
+
+add_filter( 'nav_menu_item_title', function ($title) {
+    return "<span>$title</span> ";
+}, 10, 4);
+
 
 /**
  * Updates the `$post` variable on each iteration of the loop.
