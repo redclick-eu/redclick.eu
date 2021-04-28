@@ -51,7 +51,7 @@
 
             <span>
                 {!! wpcl_t('I read and agree with') !!}
-                <a class="is-link" href="#" data-toggle="#privacyPolicy, #backdrop" data-target="#PrivacyPolicyWindow">{!! wpcl_t('privacy policy') !!}</a>.
+                <a class="is-link" href="#" data-toggle="#popup_privacyPolicy,body" data-toggle-settings='@json(['types' => ['unique']])'>{!! wpcl_t('privacy policy') !!}</a>.
             </span>
     </div>
 

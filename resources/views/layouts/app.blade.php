@@ -16,9 +16,12 @@
 
         @php do_action('get_footer') @endphp
         @include('blocks.footer')
-        @include('components.backdrop')
         @include('components.preloader')
-        @include('components.privacyPolicy')
+        @include('blocks.popup', [
+            'id' => 'popup_privacyPolicy',
+            'title' => wpcl_t("Privacy policy"),
+            'content' => $privacy_policy_content
+        ])
         @include('components.upBtn')
         @php wp_footer() @endphp
 

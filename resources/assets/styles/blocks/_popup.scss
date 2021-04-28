@@ -1,0 +1,70 @@
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	display: none;
+	width: 100%;
+	height: 100%;
+
+	&.is-active {
+		display: flex;
+	}
+
+	&-body {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		padding: 30px 35px;
+		margin: auto;
+		background-color: $white;
+	}
+
+	&-header {
+		position: relative;
+	}
+
+	&-title {
+		font-weight: 700;
+		font-size: 20px;
+		padding-bottom: 15px;
+		margin: 0 0 15px 0;
+		border-bottom: 1px solid $gray;
+	}
+
+	&-closeBtn {
+		position: absolute;
+		top: 5px;
+		right: 0;
+		width: 19px;
+		height: 19px;
+		background-image: url("../images/icons/popup/close.svg");
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+	}
+
+	&-content {
+		overflow-y: auto;
+		height: 100%;
+		padding-bottom: 60px;
+	}
+
+	&-backdrop {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		background-color: $gray;
+		opacity: .5;
+		cursor: pointer;
+	}
+
+	@include media-breakpoint-up(md) {
+		&-body {
+			max-width: 90%;
+		}
+	}
+}
