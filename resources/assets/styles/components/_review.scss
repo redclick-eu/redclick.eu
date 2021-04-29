@@ -11,8 +11,6 @@
 	}
 
 	&-photo {
-		display: flex;
-		align-items: flex-start;
 		width: 100%;
 		padding: 0 10% 10px 10%;
 
@@ -39,9 +37,7 @@
 	}
 
 	&-text {
-		a {
-			color: $red;
-		}
+		//
 	}
 
 	&-name {
@@ -51,9 +47,5 @@
 		text-align: right;
 		font-weight: 600;
 		font-size: 13px;
-
-		a {
-			@extend %link;
-		}
 	}
 }
