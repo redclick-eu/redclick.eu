@@ -17,6 +17,9 @@
 @import "common/mixins";
 @import "common/templates";
 
+@import "blocks/carousel";
+@import "blocks/carousel/reviews";
+
 @import "blocks/form";
 @import "blocks/form/contacts";
 @import "blocks/form/mobileSearch";
@@ -41,7 +44,6 @@
 @import "blocks/header";
 @import "blocks/popup";
 @import "blocks/portfolio";
-@import "blocks/reviews";
 @import "blocks/services";
 
 @import "components/input";

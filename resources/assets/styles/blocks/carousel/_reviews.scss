@@ -1,0 +1,105 @@
+.carousel {
+	$self: &;
+
+	&_reviews {
+		@extend %container;
+
+		position: relative;
+		margin-bottom: 10px;
+
+		#{$self} {
+			&-arrow {
+				position: absolute;
+				top: 0;
+				display: none;
+				width: 70px;
+				height: 100%;
+				background-repeat: no-repeat;
+				background-position: center calc(50% - 25px);
+				background-size: 30px;
+				opacity: .45;
+				cursor: pointer;
+				transition: opacity .3s;
+
+				@media (min-width: map-get($grid-breakpoints, sm)) {
+					display: block;
+				}
+
+				&:hover {
+					opacity: 1;
+				}
+
+				&_left {
+					left: -70px;
+					background-image: url("../images/carousel/arrow_left.svg");
+				}
+
+				&_right {
+					right: -70px;
+					background-image: url("../images/carousel/arrow_right.svg");
+				}
+			}
+
+			&-carousel {
+				width: 100%;
+				min-height: 250px;
+			}
+
+			&-item {
+				display: flex;
+				flex-direction: column;
+
+				@media (min-width: map-get($grid-breakpoints, md)) {
+					flex-direction: row;
+				}
+			}
+
+			&-photo {
+				display: flex;
+				align-items: center;
+				width: 100%;
+				padding: 0 10% 10px 10%;
+
+				img {
+					border-radius: 5px;
+				}
+
+				@media (min-width: map-get($grid-breakpoints, md)) {
+					min-width: 200px;
+					width: 200px;
+					padding: 0;
+					margin-right: 80px;
+				}
+			}
+
+			&-texts {
+				padding: 0 15px;
+				font-size: 14px;
+				text-align: justify;
+
+				@media (min-width: map-get($grid-breakpoints, md)) {
+					padding: 0;
+				}
+			}
+
+			&-text {
+				a {
+					color: $red;
+				}
+			}
+
+			&-name {
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-end;
+				text-align: right;
+				font-weight: 600;
+				font-size: 13px;
+
+				a {
+					@extend %link;
+				}
+			}
+		}
+	}
+}
