@@ -80,19 +80,28 @@ class App extends Controller
     public function portfolio_block()
     {
         $portfolio = [];
-        $query = new WP_Query(['category_name' => 'portfolio']);
+        $queryArgs = ['category_name' => 'portfolio'];
 
-        foreach ($query->posts as $post) {
-            $types = get_field('project_types', $post->ID);
-            array_unshift($types, '');
+        if(is_front_page()) {
+            $queryArgs['meta_key'] = 'display_on_main_page';
+            $queryArgs['meta_value'] = true;
+        }
 
-            $portfolio[] = [
-                'title' => $post->post_title,
-                'desc' => get_field('description_small', $post->ID),
-                'link' => get_permalink($post->ID),
-                'logo' => get_field('logo_little', $post->ID),
-                'types' => $types
-            ];
+        $query = new WP_Query($queryArgs);
+
+        if($query->posts) {
+            foreach ($query->posts as $post) {
+                $types = get_field('project_types', $post->ID);
+                array_unshift($types, '');
+
+                $portfolio[] = [
+                    'title' => $post->post_title,
+                    'desc' => get_field('description_small', $post->ID),
+                    'link' => get_permalink($post->ID),
+                    'logo' => get_field('logo_little', $post->ID),
+                    'types' => $types
+                ];
+            }
         }
 
         return $portfolio;
