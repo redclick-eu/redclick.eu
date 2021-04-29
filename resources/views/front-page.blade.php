@@ -2,6 +2,7 @@
 
 @section('content')
     <main class="main">
+        @include("blocks.carousel.fullwidth", ["images" => $carousel_images])
         @include("components.title", ["text" => wpcl_t("Services"), "size" => 2])
         @include("blocks.services")
         @include("components.title", ["text" => wpcl_t("Portfolio"), "size" => 2])
