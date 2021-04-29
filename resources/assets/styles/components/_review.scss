@@ -1,50 +1,59 @@
 .review {
-	padding: 10px 0;
-	margin-bottom: 30px;
-	background-color: $white;
+	@extend %container;
 
-	&-container {
-		@extend %container;
+	display: flex;
+	flex-direction: column;
+	min-height: 250px;
+	margin-bottom: 10px;
+
+	@media (min-width: map-get($grid-breakpoints, md)) {
+		flex-direction: row;
 	}
 
-	&-row {
-		@extend %row;
-	}
-
-	&-image {
-		@extend %col-12;
-		@extend %col-sm-4;
-		@extend %col-lg-3;
-
+	&-photo {
 		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin-bottom: 15px;
+		align-items: flex-start;
+		width: 100%;
+		padding: 0 10% 10px 10%;
 
 		img {
-			max-width: 320px;
+			border-radius: 5px;
 		}
 
-		@media (min-width: map-get($grid-breakpoints, sm)) {
-			img {
-				max-width: 100%;
-			}
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			min-width: 200px;
+			width: 200px;
+			padding: 0;
+			margin-right: 80px;
+		}
+	}
+
+	&-texts {
+		padding: 0 15px;
+		font-size: 14px;
+		text-align: justify;
+
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			padding: 0;
 		}
 	}
 
 	&-text {
-		@extend %col-12;
-		@extend %col-sm-8;
-		@extend %col-lg-9;
+		a {
+			color: $red;
+		}
+	}
 
+	&-name {
 		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-		text-align: justify;
-		font-size: 14px;
+		flex-direction: row;
+		justify-content: flex-end;
+		text-align: right;
+		font-weight: 600;
+		font-size: 13px;
 
-		span {
-			font-weight: bold;
+		a {
+			@extend %link;
 		}
 	}
 }
