@@ -5,6 +5,12 @@
 		position: relative;
 
 		#{$self} {
+			&-inner {
+				img {
+					width: 100%;
+				}
+			}
+
 			&-dots {
 				position: absolute;
 				bottom: 0;
@@ -54,7 +60,22 @@
 		}
 
 		&#{$self}_separateArrows {
-			//
+			#{$self} {
+				&-inner {
+					width: calc(100% - 220px);
+					margin: auto;
+				}
+
+				&-arrow {
+					&_left {
+						background-image: url("../images/carousel/arrow_left_contour_red.svg");
+					}
+
+					&_right {
+						background-image: url("../images/carousel/arrow_right_contour_red.svg");
+					}
+				}
+			}
 		}
 	}
 }
