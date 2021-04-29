@@ -2,7 +2,6 @@
 	$self: &;
 
 	&_portfolio {
-		padding: 30px 0;
 		margin-bottom: 30px;
 		background-color: $white;
 
@@ -15,69 +14,23 @@
 				@extend %row;
 			}
 
-			&-site {
-				@extend %col-12;
-				@extend %col-md-6;
-
-				margin-bottom: 10px;
-				font-size: 14px;
-
-				a {
-					padding-left: 20px;
-					background-image: url("../images/portfolio/globe.svg");
-					background-size: 16px;
-					background-repeat: no-repeat;
-					background-position: 0 center;
-				}
+			&-title {
+				font-weight: bold;
+				font-size: 24px;
 			}
 
-			&-services {
-				@extend %col-12;
-				@extend %col-md-6;
-
-				display: flex;
-				justify-content: flex-start;
-				font-size: 14px;
-
-				span {
-					margin-bottom: 30px;
-					padding-left: 25px;
-					background-image: url("../images/portfolio/check_red.svg");
-					background-size: 16px;
-					background-repeat: no-repeat;
-					background-position: 0 center;
-				}
-
-				@media (min-width: map-get($grid-breakpoints, md)) {
-					justify-content: flex-end;
-				}
+			&-carousel {
+				margin-bottom: 25px;
 			}
 
 			&-text {
 				@extend %col-12;
-				@extend %col-lg-4;
 
 				font-size: 14px;
 
 				h6 {
 					font-size: 24px;
 					font-weight: bold;
-					background-size: 30px;
-					padding-left: 35px;
-					background-repeat: no-repeat;
-					background-position: 0 center;
-				}
-
-				&_task h6 {
-					background-image: url("../images/portfolio/question.svg");
-				}
-
-				&_solution h6 {
-					background-image: url("../images/portfolio/lightbulb.svg");
-				}
-
-				&_result h6 {
-					background-image: url("../images/portfolio/check.svg");
 				}
 			}
 		}

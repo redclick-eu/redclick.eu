@@ -1,22 +1,28 @@
-@include("components.title", ["text" => $post_vars['title']])
-
 <div class="post post_portfolio">
     <div class="post-container">
         <div class="post-row">
-            <div class="post-site"><a href="{!! $post_vars['site_url'] !!}">{!! $post_vars['site'] !!}</a></div>
-            <div class="post-services"><span>{!! $post_vars['services'] !!}</span></div>
-            @if(!empty($post_vars['carousel']))
-                @include('blocks.carousel', ['images' => $post_vars['carousel']])
-            @endif
-            <div class="post-text post-text_task">
+            <h1 class="post-title">{!! $post_vars['title'] !!}</h1>
+        </div>
+    </div>
+    <div class="post-carousel">
+        @if(!empty($post_vars['carousel']))
+            @include('blocks.carousel.fullwidth', [
+                'images' => $post_vars['carousel'],
+                'separate_arrows' => true
+            ])
+        @endif
+    </div>
+    <div class="post-container">
+        <div class="post-row">
+            <div class="post-text">
                 <h6>{!! wpcl_t("Task") !!}</h6>
                 {!! $post_vars['text']['task'] !!}
             </div>
-            <div class="post-text post-text_solution">
+            <div class="post-text">
                 <h6>{!! wpcl_t("Solution") !!}</h6>
                 {!! $post_vars['text']['solution'] !!}
             </div>
-            <div class="post-text post-text_result">
+            <div class="post-text">
                 <h6>{!! wpcl_t("Result") !!}</h6>
                 {!! $post_vars['text']['result'] !!}
             </div>
