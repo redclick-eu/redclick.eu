@@ -1,5 +1,5 @@
 <div class="carousel carousel_reviews siema-carousel">
-    <div class="carousel-carousel siema-inner">
+    <div class="carousel-inner siema-inner">
         @foreach($reviews_block as $review)
             <div class="carousel-item">
                 <div class="carousel-photo">
