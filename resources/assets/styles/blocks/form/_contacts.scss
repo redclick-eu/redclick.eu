@@ -35,6 +35,8 @@
 
 			&-submit {
 				@extend %button;
+
+				margin-top: 10px;
 			}
 
 			@include media-breakpoint-up(lg) {
