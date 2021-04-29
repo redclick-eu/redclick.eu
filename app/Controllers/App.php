@@ -83,13 +83,12 @@ class App extends Controller
         $query = new WP_Query(['category_name' => 'portfolio']);
 
         foreach ($query->posts as $post) {
-            $types = "";
-
-            foreach (get_field('project_types', $post->ID) as $type)
-                $types .= "js-isotope-" . $type . " ";
+            $types = get_field('project_types', $post->ID);
+            array_unshift($types, '');
 
             $portfolio[] = [
-                'title' => get_field('description_small', $post->ID),
+                'title' => $post->post_title,
+                'desc' => get_field('description_small', $post->ID),
                 'link' => get_permalink($post->ID),
                 'logo' => get_field('logo_little', $post->ID),
                 'types' => $types
