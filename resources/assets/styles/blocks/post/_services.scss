@@ -2,21 +2,19 @@
 	$self: &;
 
 	&_services {
-		@extend %container;
-
 		padding-bottom: 30px;
 
 		#{$self} {
-			&-row {
-				@extend %row;
-			}
-
 			&-content {
 				@extend %col-12;
 			}
 
 			&-title {
 				@extend %col-12;
+			}
+
+			&-carousel {
+				margin-bottom: 25px;
 			}
 
 			&-info {
@@ -32,30 +30,55 @@
 				@extend %col-12;
 				@extend %col-md-6;
 
-				padding: 20px 0 20px 20%;
-				background-repeat: no-repeat;
-				background-size: 17%;
-				background-position: 0 center;
+				display: flex;
+				margin-bottom: 15px;
+				
+				&Icon {
+					width: 120px;
+					height: 120px;
+					margin-right: 50px;
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
 
-				&_cost {
-					background-image: url("../images/services/cost.svg");
+					&_cost {
+						background-image: url("../images/services/cost.svg");
+					}
+
+					&_deadline {
+						background-image: url("../images/services/deadline.svg");
+					}
 				}
 
-				&_deadline {
-					background-image: url("../images/services/deadlines.svg");
-				}
+				&Info {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
 
-				h6 {
-					font-size: 20px;
-				}
+					h6 {
+						margin-bottom: 0;
+						font-weight: bold;
+						font-size: 20px;
+						line-height: 20px;
+					}
 
-				span {
-					font-size: 40px;
+					span {
+						font-weight: bold;
+						font-size: 30px;
+					}
 				}
+			}
 
-				@media (min-width: map-get($grid-breakpoints, md)) {
-					padding-left: 10%;
-					min-height: 145px;
+			@include media-breakpoint-up(md) {
+				&-card {
+					justify-content: center;
+					margin-bottom: 0;
+				}
+			}
+
+			@include media-breakpoint-up(lg) {
+				&-card {
+					padding-right: 130px;
 				}
 			}
 		}

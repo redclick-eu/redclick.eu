@@ -6,19 +6,6 @@
 		background-color: $white;
 
 		#{$self} {
-			&-container {
-				@extend %container;
-			}
-
-			&-row {
-				@extend %row;
-			}
-
-			&-title {
-				font-weight: bold;
-				font-size: 24px;
-			}
-
 			&-carousel {
 				margin-bottom: 25px;
 			}

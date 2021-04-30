@@ -1,4 +1,17 @@
 .post {
+	&-container {
+		@extend %container;
+	}
+
+	&-row {
+		@extend %row;
+	}
+
+	&-title {
+		font-weight: bold;
+		font-size: 24px;
+	}
+
 	a {
 		@extend %link;
 	}
