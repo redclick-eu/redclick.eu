@@ -1,9 +1,15 @@
 .services {
 	$self: &;
 
-	@extend %container;
-
 	padding-bottom: 30px;
+
+	&_blue {
+		background-color: $blue;
+	}
+
+	&-container {
+		@extend %container;
+	}
 
 	&-row {
 		@extend %row;

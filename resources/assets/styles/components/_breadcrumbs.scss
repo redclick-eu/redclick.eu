@@ -1,10 +1,16 @@
 .breadcrumbs {
-	@extend %container;
+	&_blue {
+		background-color: $blue;
+	}
 
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	margin-top: 15px;
+	&-container {
+		@extend %container;
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding-top: 15px;
+	}
 
 	span {
 		font-weight: normal;

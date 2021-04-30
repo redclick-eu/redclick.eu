@@ -1,13 +1,20 @@
 .review {
-	@extend %container;
-
-	display: flex;
-	flex-direction: column;
 	min-height: 250px;
-	margin-bottom: 10px;
+	padding-bottom: 50px;
 
-	@media (min-width: map-get($grid-breakpoints, md)) {
-		flex-direction: row;
+	&_blue {
+		background-color: $blue;
+	}
+
+	&-container {
+		@extend %container;
+
+		display: flex;
+		flex-direction: column;
+
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			flex-direction: row;
+		}
 	}
 
 	&-photo {

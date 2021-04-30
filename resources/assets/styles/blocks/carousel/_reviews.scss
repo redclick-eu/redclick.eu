@@ -2,12 +2,14 @@
 	$self: &;
 
 	&_reviews {
-		@extend %container;
-
 		position: relative;
 		margin-bottom: 10px;
 
 		#{$self} {
+			&-container {
+				@extend %container;
+			}
+
 			&-arrow {
 				position: absolute;
 				top: 0;

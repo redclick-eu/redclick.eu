@@ -5,6 +5,10 @@
 
 	background-color: $white;
 
+	&_blue {
+		background-color: $blue;
+	}
+
 	&-container {
 		@extend %container;
 
