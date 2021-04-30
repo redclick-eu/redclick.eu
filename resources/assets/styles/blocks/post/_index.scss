@@ -8,6 +8,8 @@
 	}
 
 	&-title {
+		@extend %col-12;
+
 		font-weight: bold;
 		font-size: 24px;
 	}
