@@ -18,7 +18,7 @@ class TemplatePostServices extends Controller
         ];
 	}
 
-    private function carousel($carousel) {
+    private static function carousel($carousel) {
         $output = [];
 
         if(is_array($carousel)) {
