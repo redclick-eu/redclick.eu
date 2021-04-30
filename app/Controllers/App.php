@@ -3,6 +3,9 @@
 namespace App\Controllers;
 
 use Sober\Controller\Controller;
+
+use App\Breadcrumbs;
+
 use WP_Query;
 
 class App extends Controller
@@ -37,6 +40,10 @@ class App extends Controller
         }
 
         return null;
+    }
+
+    public function breadcrumbs() {
+        return (new Breadcrumbs)->get_crumbs(' › ', [], []);
     }
 
     public function fields() {

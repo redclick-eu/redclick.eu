@@ -6,6 +6,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @include("components.breadcrumbs")
     @include("components.title", ["text" => get_the_title()])
     @include('blocks.page.text')
     @include('blocks.callback')
