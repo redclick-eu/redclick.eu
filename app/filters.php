@@ -100,14 +100,6 @@ add_filter('sober/controller/acf/array', function () {
     return true;
 });
 
-add_action('acf/pre_load_meta', function ($data) {
-    global $post;
-    if((is_404() || is_search()) && $post === null) {
-        return '__return_null';
-    }
-    return $data;
-},100);
-
 add_filter( 'jpeg_quality', function () {
     return 100;
 }, 10, 2 );
