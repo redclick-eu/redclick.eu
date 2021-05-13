@@ -2,12 +2,14 @@
 	$self: &;
 
 	&_reviews {
-		position: relative;
 		margin-bottom: 10px;
 
 		#{$self} {
 			&-container {
 				@extend %container;
+
+				position: relative;
+				padding: 0;
 			}
 
 			&-arrow {
@@ -50,6 +52,7 @@
 			&-item {
 				display: flex;
 				flex-direction: column;
+				padding: 0 15px;
 
 				@media (min-width: map-get($grid-breakpoints, md)) {
 					flex-direction: row;
