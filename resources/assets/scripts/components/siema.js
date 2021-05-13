@@ -12,8 +12,8 @@ window.addEventListener('focus', () => {
 });
 
 Siema.prototype.addPagination = function addPagination() {
-    const siema = this;
     const dots = this.selector.parentNode.querySelector('.siema-dots');
+    this.dots = [];
 
     if (dots === null) {
         return;
@@ -23,17 +23,14 @@ Siema.prototype.addPagination = function addPagination() {
         dots.removeChild(dots.firstChild);
     }
 
-    for (let i = 0; i < this.innerElements.length - this.perPage + 1; i += 1) {
+    this.innerElements.forEach((el, i) => {
         const btn = document.createElement('button');
 
         btn.classList.add('carousel-dot');
         btn.setAttribute('aria-label', `Перейти к слайду ${i + 1}`);
         btn.addEventListener('click', () => {
-            siema.goTo(i);
-            siema.nextWithTimeout();
-
-            Array.from(this.parentNode.childNodes).forEach((el) => el.classList.remove('carousel-dot_active'));
-            btn.classList.add('carousel-dot_active');
+            this.goTo(i);
+            this.nextWithTimeout();
         });
 
         if (i === 0) {
@@ -41,28 +38,26 @@ Siema.prototype.addPagination = function addPagination() {
         }
 
         dots.appendChild(btn);
-    }
-
-    this.dots = dots;
+        this.dots.push(btn);
+    });
 };
 
 Siema.prototype.addArrows = function addArrows() {
-    const siema = this;
-    const carousel = siema.selector.parentNode;
+    const carousel = this.selector.parentNode;
 
     const left = carousel.querySelector('.siema-arrow_left');
     if (left !== null) {
         left.addEventListener('click', () => {
-            siema.prev();
-            left.nextWithTimeout();
+            this.prev();
+            this.nextWithTimeout();
         });
     }
 
     const right = carousel.querySelector('.siema-arrow_right');
     if (right !== null) {
         right.addEventListener('click', () => {
-            siema.next();
-            right.nextWithTimeout();
+            this.next();
+            this.nextWithTimeout();
         });
     }
 };
@@ -108,9 +103,8 @@ const defaults = {
     },
     onChange() {
         if (this.dots !== undefined) {
-            const dots = this.selector.parentNode.querySelectorAll('.carousel-dot');
-            Array.from(dots).forEach((el) => el.classList.remove('carousel-dot_active'));
-            dots[this.currentSlide].classList.add('carousel-dot_active');
+            this.dots.forEach((dot) => dot.classList.remove('carousel-dot_active'));
+            this.dots[this.currentSlide].classList.add('carousel-dot_active');
         }
 
         if (this.config.intervalMilliseconds !== undefined) {
