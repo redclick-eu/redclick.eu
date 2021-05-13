@@ -1,7 +1,7 @@
 import upBtn from '../components/upBtn';
 import googleMaps from '../components/googleMaps';
-import lifeSearch from '../components/lifeSearch';
-import lifeSearchMobile from '../components/lifeSearchMobile';
+import liveSearch from '../components/liveSearch';
+import liveSearchMobile from '../components/liveSearchMobile';
 import portfolioGrid from '../components/portfolioGrid';
 import preloader from '../components/preloader';
 import siema from '../components/siema';
@@ -16,8 +16,8 @@ export default {
     init() {
         upBtn();
         googleMaps();
-        lifeSearch();
-        lifeSearchMobile();
+        liveSearch();
+        liveSearchMobile();
         portfolioGrid();
         preloader();
         siema();
