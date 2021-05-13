@@ -13,11 +13,12 @@ window.addEventListener('focus', () => {
 
 Siema.prototype.addPagination = function addPagination() {
     const dots = this.selector.parentNode.querySelector('.siema-dots');
-    this.dots = [];
 
     if (dots === null) {
         return;
     }
+
+    this.dots = [];
 
     while (dots.firstChild) {
         dots.removeChild(dots.firstChild);
