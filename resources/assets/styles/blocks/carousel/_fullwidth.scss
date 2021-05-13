@@ -62,7 +62,6 @@
 		&#{$self}_separateArrows {
 			#{$self} {
 				&-inner {
-					width: calc(100% - 220px);
 					margin: auto;
 				}
 
@@ -73,6 +72,12 @@
 
 					&_right {
 						background-image: url("../images/carousel/arrow_right_contour_red.svg");
+					}
+				}
+
+				@include media-breakpoint-up(lg) {
+					&-inner {
+						width: calc(100% - 220px);
 					}
 				}
 			}
