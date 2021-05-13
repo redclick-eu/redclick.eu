@@ -53,7 +53,7 @@ class REST_Live_Search_Controller extends WP_REST_Controller {
             $the_query->the_post();
             $max--;
             $out[get_the_title()] = [
-                "href" => esc_url(get_the_permalink()),
+                "link" => esc_url(get_the_permalink()),
                 "title" => get_the_title()
             ];
             if ($max === 0) {
@@ -69,7 +69,7 @@ class REST_Live_Search_Controller extends WP_REST_Controller {
                 if(mb_strpos(mb_strtolower(get_field('content')),mb_strtolower($params['keyword'])) && !isset($out[get_the_title()])) {
                     $max--;
                     $out[get_the_title()] = [
-                        "href" => esc_url(get_the_permalink()),
+                        "link" => esc_url(get_the_permalink()),
                         "title" => get_the_title(),
                     ];
                 }
@@ -87,7 +87,7 @@ class REST_Live_Search_Controller extends WP_REST_Controller {
                 if (strpos(mb_strtolower($cat->cat_name), mb_strtolower($params['keyword'])) !== false) {
                     $max--;
                     $out[] = [
-                        "href" => esc_url(get_term_link($cat->term_id)),
+                        "link" => esc_url(get_term_link($cat->term_id)),
                         "title" => $cat->name
                     ];
                 }
