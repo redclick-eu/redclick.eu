@@ -2,7 +2,14 @@
      data-settings='{"intervalMilliseconds": 5000}'>
     <div class="carousel-inner siema-inner">
         @foreach($images as $image)
-            <img src="{!! $image['url'] !!}" alt="{!! $image['alt'] !!}">
+            <div class="carousel-item">
+                <img src="{!! $image['url'] !!}" alt="{!! $image['alt'] !!}">
+                @if(isset($image['text']))
+                    <div class="carousel-text">
+                        <p>{!! $image['text'] !!}</p>
+                    </div>
+                @endif
+            </div>
         @endforeach
     </div>
 

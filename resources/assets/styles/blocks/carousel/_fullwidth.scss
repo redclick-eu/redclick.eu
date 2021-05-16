@@ -4,10 +4,37 @@
 	&_fullwidth {
 		position: relative;
 
+		.siema {
+			&-item {
+				position: relative;
+			}
+		}
+
 		#{$self} {
 			&-inner {
 				img {
 					width: 100%;
+				}
+
+				.carousel-text {
+					position: absolute;
+					top: 0;
+					left: 0;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					width: 100%;
+					height: 100%;
+				}
+
+				p {
+					width: 100%;
+					padding: 0 140px;
+					color: $white;
+					font-weight: bold;
+					font-size: 16px;
+					line-height: 22px;
+					text-align: center;
 				}
 			}
 
@@ -55,6 +82,33 @@
 				&_right {
 					right: 45px;
 					background-image: url("../images/carousel/arrow_right_contour_white.svg");
+				}
+			}
+
+			@include media-breakpoint-up(sm) {
+				&-inner {
+					p {
+						font-size: 24px;
+						line-height: 32px;
+					}
+				}
+			}
+
+			@include media-breakpoint-up(md) {
+				&-inner {
+					p {
+						font-size: 36px;
+						line-height: 32px;
+					}
+				}
+			}
+
+			@include media-breakpoint-up(lg) {
+				&-inner {
+					p {
+						font-size: 48px;
+						line-height: 65px;
+					}
 				}
 			}
 		}

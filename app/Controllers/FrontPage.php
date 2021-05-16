@@ -12,10 +12,16 @@ class FrontPage extends Controller
         $images = [];
 
         foreach ($images_data as $image_data) {
-            $images[] = [
+            $data = [
                 'url' => $image_data['image']['url'],
                 'alt' => $image_data['image']['alt'],
             ];
+
+            if(isset($image_data['text']) && !empty($image_data['text'])) {
+                $data['text'] = $image_data['text'];
+            }
+
+            $images[] = $data;
         }
 
         return $images;
