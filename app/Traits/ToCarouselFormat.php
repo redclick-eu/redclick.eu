@@ -15,7 +15,7 @@ trait ToCarouselFormat {
                     {$c['photo']['sizes']['thumbnail']} 576w,
                     {$c['photo']['sizes']['medium']} 768w,
                     {$c['photo']['sizes']['large']} 1200w,
-                    {$c['photo']['url']}",
+                    {$c['photo']['url']} 1920w",
             ];
         }
 
