@@ -2,10 +2,13 @@
 
 namespace App\Controllers;
 
+use App\Traits\ToCarouselFormat;
 use Sober\Controller\Controller;
 
 class TemplatePostServices extends Controller
 {
+    use ToCarouselFormat;
+
 	public function post_vars(){
         $fields = get_fields();
 
@@ -14,22 +17,7 @@ class TemplatePostServices extends Controller
             'content' => get_the_content(),
             'cost' => $fields['service_cost'],
             'deadline' => $fields['service_time'],
-            'carousel' =>  isset($fields['project_photos']) ? $this->carousel($fields['project_photos']) : [],
+            'carousel' =>  isset($fields['project_photos']) && is_array($fields['project_photos']) ? $this->ToCarouselFormat($fields['project_photos']) : [],
         ];
 	}
-
-    private static function carousel($carousel) {
-        $output = [];
-
-        if(is_array($carousel)) {
-            foreach ($carousel as $c) {
-                $output[] = [
-                    'alt' => $c['photo']['title'],
-                    'url' => $c['photo']['url']
-                ];
-            }
-        }
-
-        return $output;
-    }
 }

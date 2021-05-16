@@ -145,3 +145,15 @@ add_action('after_setup_theme', function () {
         return "<?= " . __NAMESPACE__ . "\\asset_path({$asset}); ?>";
     });
 });
+
+add_filter('intermediate_image_sizes_advanced', function ($sizes) {
+    unset($sizes['1536x1536']);
+    unset($sizes['2048x2048']);
+
+    return $sizes;
+});
+
+add_action('init', function () {
+    remove_image_size('1536x1536');
+    remove_image_size('2048x2048');
+});

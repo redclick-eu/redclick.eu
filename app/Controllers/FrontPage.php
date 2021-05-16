@@ -13,7 +13,7 @@ class FrontPage extends Controller
 
         foreach ($images_data as $image_data) {
             $data = [
-                'url' => $image_data['image']['url'],
+                'src' => $image_data['image']['url'],
                 'alt' => $image_data['image']['alt'],
             ];
 

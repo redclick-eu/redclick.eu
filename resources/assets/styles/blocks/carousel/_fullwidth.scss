@@ -29,11 +29,11 @@
 
 				p {
 					width: 100%;
-					padding: 0 140px;
+					padding: 0 120px;
 					color: $white;
 					font-weight: bold;
-					font-size: 16px;
-					line-height: 22px;
+					font-size: 24px;
+					line-height: 32px;
 					text-align: center;
 				}
 			}
@@ -85,15 +85,6 @@
 				}
 			}
 
-			@include media-breakpoint-up(sm) {
-				&-inner {
-					p {
-						font-size: 24px;
-						line-height: 32px;
-					}
-				}
-			}
-
 			@include media-breakpoint-up(md) {
 				&-inner {
 					p {
@@ -136,6 +127,14 @@
 						width: calc(100% - 203px);
 					}
 				}
+			}
+		}
+
+		&#{$self}_hideOnSmallScreen {
+			display: none;
+
+			@include media-breakpoint-up(sm) {
+				display: block;
 			}
 		}
 	}

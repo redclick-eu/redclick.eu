@@ -2,7 +2,7 @@
 
 @section('content')
     <main class="main">
-        @include("blocks.carousel.fullwidth", ["images" => $carousel_images])
+        @include("blocks.carousel.fullwidth", ["images" => $carousel_images, "hide_on_small_screen" => true])
         @include("components.title", ["text" => wpcl_t("Services"), "size" => 2, "is_blue" => true])
         @include("blocks.services", ["is_blue" => true])
         @include("components.title", ["text" => wpcl_t("Portfolio"), "size" => 2])

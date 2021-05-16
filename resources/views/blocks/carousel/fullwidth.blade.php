@@ -1,9 +1,17 @@
-<div class="carousel carousel_fullwidth @if(isset($separate_arrows) && $separate_arrows) carousel_separateArrows @endif siema-carousel"
+<div class="carousel carousel_fullwidth siema-carousel
+    @if(isset($separate_arrows) && $separate_arrows) carousel_separateArrows @endif
+    @if(isset($hide_on_small_screen) && $hide_on_small_screen) carousel_hideOnSmallScreen @endif
+    "
      data-settings='{"intervalMilliseconds": 5000}'>
     <div class="carousel-inner siema-inner">
         @foreach($images as $image)
             <div class="carousel-item">
-                <img src="{!! $image['url'] !!}" alt="{!! $image['alt'] !!}">
+                <img
+                    src="{!! $image['src'] !!}"
+                    alt="{!! $image['alt'] !!}"
+                    @if(isset($image['srcset'])) srcset="{!! $image['srcset'] !!}" @endif
+                    @if(isset($image['sizes'])) sizes="{!! $image['sizes'] !!}" @endif>
+
                 @if(isset($image['text']))
                     <div class="carousel-text">
                         <p>{!! $image['text'] !!}</p>
