@@ -84,6 +84,8 @@
 	}
 
 	&-link {
-		//
+		&:hover {
+			color: $red;
+		}
 	}
 }
