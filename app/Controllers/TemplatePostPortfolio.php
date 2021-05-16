@@ -11,9 +11,6 @@ class TemplatePostPortfolio extends Controller
 
         return [
 		    'title' => $fields['project_name'],
-            'site' => $fields['project_site'],
-            'site_url' => $fields['project_site_protocol'].'://'.$fields['project_site'],
-            'services' => $this->services($fields['project_types']),
             'carousel' =>  $this->carousel($fields['project_photos']),
             'text' => [
                 'task' => $fields['project_task'],
