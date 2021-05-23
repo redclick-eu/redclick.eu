@@ -28,7 +28,7 @@ Siema.prototype.addPagination = function addPagination() {
         const btn = document.createElement('button');
 
         btn.classList.add('carousel-dot');
-        btn.setAttribute('aria-label', `Перейти к слайду ${i + 1}`);
+        btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
         btn.addEventListener('click', () => {
             this.goTo(i);
             this.nextWithTimeout();

@@ -30,7 +30,7 @@ class Breadcrumbs {
             '_404'       => '<span>' . wpcl_t('Error 404') . '</span>',
             'search'     => '<span>' . wpcl_t('Search results for the query - <b>%s</b>') . '</span>',
             'author'     => 'Author\'s archive: <b>%s</b>',
-            'year'       => 'Archive <b>%d</b> год',
+            'year'       => 'Archive <b>%d</b> year',
             'month'      => 'Archive: <b>%s</b>',
             'day'        => '',
             'attachment' => 'Media: %s',

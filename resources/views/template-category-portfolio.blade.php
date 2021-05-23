@@ -1,5 +1,5 @@
 {{--
-  Category Template: Services
+  Category Template: Portfolio
 --}}
 
 @include("components.breadcrumbs")

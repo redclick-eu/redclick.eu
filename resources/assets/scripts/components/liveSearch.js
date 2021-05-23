@@ -26,7 +26,7 @@ function createSearchlistItems(list, data) {
         if (el.image) {
             const image = document.createElement('img');
             image.src = el.image;
-            image.alt = `Изображение товара - ${el.title}`;
+            image.alt = `Product picture - ${el.title}`;
             link.appendChild(image);
         }
 

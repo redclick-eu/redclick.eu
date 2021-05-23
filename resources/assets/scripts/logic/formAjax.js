@@ -95,7 +95,7 @@ export default () => {
 
                     if (backdrop) {
                         _form.classList.add('is-message');
-                        backdrop.innerText = 'Проблема с интернетом или сервером, попробуйте позже';
+                        backdrop.innerText = 'Internet or server problem, please try again later';
 
                         setTimeout(() => {
                             _form.classList.remove('is-message');

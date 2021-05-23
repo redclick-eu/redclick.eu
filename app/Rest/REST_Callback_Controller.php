@@ -64,9 +64,9 @@ class REST_Callback_Controller extends WP_REST_Controller {
         $params = $request->get_params();
 
         $to = get_field('email_address', (new WP_Query(['pagename' => 'mainpage']))->post->ID);
-        $theme = 'Письмо из формы обратной связи';
+        $theme = 'A letter from the callback form';
 
-        $subject = $theme . ' от ' . $params['name'];
+        $subject = $theme . ' from ' . $params['name'];
         $message = '
         <table>
           <tr>
@@ -95,11 +95,11 @@ class REST_Callback_Controller extends WP_REST_Controller {
 
         return [
             "success" => true,
-            "message" => "Сообщение успешно доставлено",
             "\$to" => $to,
             "\$subject" => $subject,
             "\$message" => $message,
             "\$headers" => $headers,
+            "message" => "Message successfully delivered"
         ];
     }
 }
