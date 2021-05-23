@@ -95,10 +95,6 @@ class REST_Callback_Controller extends WP_REST_Controller {
 
         return [
             "success" => true,
-            "\$to" => $to,
-            "\$subject" => $subject,
-            "\$message" => $message,
-            "\$headers" => $headers,
             "message" => "Message successfully delivered"
         ];
     }
