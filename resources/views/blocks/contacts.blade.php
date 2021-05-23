@@ -4,7 +4,7 @@
         <div class="contacts-row">
             <div class="contacts-info">
                 <p class="contacts-item_name"><span itemprop="name">{!! A::get_field("company_name") !!}</span></p>
-                <img itemprop="image" style="display:none;" src="{!! App\asset_path("images/logo_black.svg") !!}" alt="{!! get_bloginfo('name') !!}">
+                <img itemprop="image" style="display:none;" src="{!! App\asset_path("images/contacts/logo_black.svg") !!}" alt="{!! get_bloginfo('name') !!}">
                 <meta itemprop="telephone" content="{!! A::get_field("phone_number") !!}">
                 <div class="contacts-blocks">
                     <div class="contacts-block">
