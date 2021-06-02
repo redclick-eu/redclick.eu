@@ -1,4 +1,4 @@
-<div class="popup" {!! isset($id) ? "id='$id'" : '' !!}>
+<div class="popup" {!! isset($id) ? "id='$id'" : '' !!} data-toggle>
     <div class="popup-body">
         <div class="popup-header">
             <h3 class="popup-title">{!! $title !!}</h3>

@@ -25,6 +25,10 @@ export default (dataSelector = 'toggle') => {
     };
 
     toggle.forEach((el) => {
+        if (!el.getAttribute(`data-${dataSelector}`) && !el.getAttribute(`data-${dataSelector}-settings`)) {
+            return;
+        }
+
         /*
             clear - just remove all active classes
             unique - just toggle active class
@@ -76,7 +80,7 @@ export default (dataSelector = 'toggle') => {
             }
 
             if (settings.types.includes('clear')) {
-                const closingElements = [...showed, ...Array.from(document.querySelectorAll('.is-active'))];
+                const closingElements = [...showed, ...Array.from(document.querySelectorAll(`[data-${dataSelector}].is-active, body.is-active`))];
                 showed = [];
 
                 while (closingElements.length > 0) {
