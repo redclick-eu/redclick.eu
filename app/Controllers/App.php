@@ -106,10 +106,15 @@ class App extends Controller
                     'desc' => get_field('description_small', $post->ID),
                     'link' => get_permalink($post->ID),
                     'logo' => get_field('logo_little', $post->ID),
-                    'types' => $types
+                    'types' => $types,
+                    'position' => get_field('project_position', $post->ID),
                 ];
             }
         }
+
+        usort($portfolio, function($a, $b) {
+            return $b['position'] - $a['position'];
+        });
 
         return $portfolio;
     }
